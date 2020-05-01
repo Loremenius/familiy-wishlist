@@ -1,18 +1,32 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
+import { connect } from "react-redux";
+import { getFamilies } from '../redux/actions/WishlistActions';
 
-const Home = () =>{
-    const User = {username:"Munch"}
-    const Families = ['Fernandez', 'Casias', 'Hinton']
+const Home = ({families, user, getFamilies}) =>{
+
+    useEffect(()=>{
+        getFamilies();
+    },[]);
+
     return(
         <div className="Home">
-            <h1>Welcome {User.username}</h1>
+            <h1>Welcome {user.username}</h1>
             <Link to="/wishlist">Click here to view your Wishlist!</Link>
-            {Families.map((family)=>(
+            {families.map((family)=>(
                  <Link to="/family">View {family} members</Link>
             ))}
         </div>
     )
 }
 
-export default Home
+function mapStateToProps(state) {
+    return {
+      isFetching: state.wishlistReducer.isFetching,
+      error: state.wishlistReducer.error,
+      families: state.wishlistReducer.families,
+      user:state.loginReducer.user
+    };
+  }
+
+export default connect(mapStateToProps, { getFamilies })(Home);

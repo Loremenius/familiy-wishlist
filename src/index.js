@@ -8,8 +8,9 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { Provider } from "react-redux";
 import { reducer as loginReducer } from './redux/reducers/LoginRegisterReducer';
+import { reducer as wishlistReducer } from './redux/reducers/WishlistReducer'
 
-const store = createStore(combineReducers({loginReducer}), applyMiddleware(thunk, logger));
+const store = createStore(combineReducers({loginReducer,wishlistReducer}), applyMiddleware(thunk, logger));
 
 ReactDOM.render(
 <Provider store = {store}>
