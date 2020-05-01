@@ -1,7 +1,8 @@
 import React from "react";
 import {Route} from "react-router-dom"
 import Landing from "./Landing";
-import Login from "./Login"
+import Login from "./Login";
+import Home from './Home';
 
 const Routes = () =>{
 
@@ -10,7 +11,7 @@ const Routes = () =>{
 
             <Route exact path="/" component={Landing}/>
             <Route path="/register"/>
-            <Route path="/home"/>
+            <Route path="/home" component={Home}/>
             <Route path="/login" component = {Login}/>
 
         </div>

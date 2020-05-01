@@ -1,6 +1,8 @@
 import React, { useState } from "react"
+import { connect } from "react-redux";
+import { loginUser } from '../redux/actions/LoginRegisterActions';
 
-const Login = () =>{
+const Login = ({ loginUser, history }) =>{
     const [user, setUser] = useState({username:"", password:""});
     const onChange = (e) =>{
         setUser({
@@ -12,6 +14,7 @@ const Login = () =>{
     const onSubmit = (e) =>{
         e.preventDefault()
         console.log(user)
+        loginUser(user, history);
     }
 
     return (
@@ -27,4 +30,11 @@ const Login = () =>{
     )
 }
 
-export default Login;
+function mapStateToProps(state) {
+    return {
+      isFetching: state.loginReducer.isFetching,
+      error: state.loginReducer.error
+    };
+  }
+
+export default connect(mapStateToProps, { loginUser })(Login);
