@@ -14,7 +14,7 @@ const Home = ({families, user, getFamilies}) =>{
             <h1>Welcome {user.username}</h1>
             <Link to="/wishlist">Click here to view your Wishlist!</Link>
             {families.map((family)=>(
-                 <Link tto={`/family/${family}`}>View {family} members</Link>
+                 <Link to={`/family/${family}`} key={family}>View {family} members</Link>
             ))}
         </div>
     )
@@ -22,8 +22,6 @@ const Home = ({families, user, getFamilies}) =>{
 
 function mapStateToProps(state) {
     return {
-      isFetching: state.wishlistReducer.isFetching,
-      error: state.wishlistReducer.error,
       families: state.wishlistReducer.families,
       user:state.loginReducer.user
     };

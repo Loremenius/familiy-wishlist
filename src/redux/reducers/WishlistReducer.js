@@ -14,7 +14,7 @@ export const reducer = (state = initialState, action) => {
         case GET_MEMBERS:
             return {
                 ...state,
-                users: action.payload,
+                members: action.payload,
             }
         default:
             return state;
@@ -22,7 +22,7 @@ export const reducer = (state = initialState, action) => {
 }
 
 const initialState = {
-    users:[],
+    members:[],
     families:[],
     gifts:[],
 };
