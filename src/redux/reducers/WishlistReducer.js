@@ -1,31 +1,20 @@
 
 import {
-    GET_FAMILIES_LOADING,
-    GET_FAMILIES_SUCCESS,
-    GET_FAMILIES_FAILED, 
+    GET_FAMILIES,
+    GET_MEMBERS,
     } from "../actions/WishlistActions";
 
 export const reducer = (state = initialState, action) => {
     switch(action.type){
-        case GET_FAMILIES_LOADING:
-            return {
-                ...state,
-                isFetching: true,
-                error: null
-            };
-        case GET_FAMILIES_FAILED:
-            return {
-                ...state,
-                isFetching: false,
-                error: action.payload
-            }
-        case GET_FAMILIES_SUCCESS:
+        case GET_FAMILIES:
             return {
                 ...state,
                 families: action.payload,
-                isFetching: false,
-                error: null,
-
+            }
+        case GET_MEMBERS:
+            return {
+                ...state,
+                users: action.payload,
             }
         default:
             return state;
@@ -36,6 +25,4 @@ const initialState = {
     users:[],
     families:[],
     gifts:[],
-    error:null,
-    isFetching:false,
 };

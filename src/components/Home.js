@@ -14,7 +14,7 @@ const Home = ({families, user, getFamilies}) =>{
             <h1>Welcome {user.username}</h1>
             <Link to="/wishlist">Click here to view your Wishlist!</Link>
             {families.map((family)=>(
-                 <Link to="/family">View {family} members</Link>
+                 <Link tto={`/family/${family}`}>View {family} members</Link>
             ))}
         </div>
     )
