@@ -2,6 +2,7 @@
 import {
     GET_FAMILIES,
     GET_MEMBERS,
+    GET_LIST
     } from "../actions/WishlistActions";
 
 export const reducer = (state = initialState, action) => {
@@ -15,6 +16,11 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 members: action.payload,
+            }
+        case GET_LIST:
+            return {
+                ...state,
+                gifts: action.payload,
             }
         default:
             return state;
