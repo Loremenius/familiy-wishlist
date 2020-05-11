@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import axiosWithAuth from '../../components/axiosWithAuth';
+import { axiosWithAuth } from '../../components/axiosWithAuth';
 
 export const GET_FAMILIES = "GET_FAMILIES";
 
