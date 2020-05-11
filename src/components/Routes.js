@@ -18,7 +18,7 @@ const Routes = () =>{
             <Route path="/login" component = {Login}/>
             <Route path='/family/:family' component = {FamilyMembers}/>
             <Route path='/wishlist/:id' component = {Wishlist}/>
-            <Route path='/wishlist/' component = {UserList}/>
+            <Route exact path='/wishlist' component = {UserList}/>
 
         </div>
     )
