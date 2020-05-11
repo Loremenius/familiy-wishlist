@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getList } from '../redux/actions/WishlistActions';
 
-const FamilyMembers = ({gifts, getList, match}) =>{
+const Wishlist = ({gifts, getList, match}) =>{
 
     useEffect(()=>{
         getList(match.params.id);
@@ -28,4 +28,4 @@ function mapStateToProps(state) {
     };
   }
 
-export default connect(mapStateToProps, { getList })(FamilyMembers);
+export default connect(mapStateToProps, { getList })(Wishlist);
