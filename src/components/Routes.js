@@ -4,7 +4,7 @@ import Landing from "./Landing";
 import Login from "./Login";
 import Home from './Home';
 import FamilyMembers from "./FamilyMembers";
-import Wishlist from "./Wishlist"
+import Wishlist from "./wishlist/Wishlist"
 
 const Routes = () =>{
 
