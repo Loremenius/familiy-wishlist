@@ -5,7 +5,6 @@ import Login from "./Login";
 import Home from './Home';
 import FamilyMembers from "./FamilyMembers";
 import Wishlist from "./Wishlist"
-import UserList from './UserList'
 
 const Routes = () =>{
 
@@ -18,7 +17,6 @@ const Routes = () =>{
             <Route path="/login" component = {Login}/>
             <Route path='/family/:family' component = {FamilyMembers}/>
             <Route path='/wishlist/:id' component = {Wishlist}/>
-            <Route exact path='/wishlist' component = {UserList}/>
 
         </div>
     )
