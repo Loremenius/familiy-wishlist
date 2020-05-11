@@ -1,5 +1,4 @@
-import React, { useEffect } from "react"
-import { Link } from "react-router-dom"
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getList } from '../redux/actions/WishlistActions';
 
