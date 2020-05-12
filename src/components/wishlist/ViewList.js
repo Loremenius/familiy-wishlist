@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { getList } from '../../redux/actions/WishlistActions';
 
-const Wishlist = ({gifts, getList, match}) =>{
-
-    useEffect(()=>{
-        getList(match.params.id);
-    },[]);
+const ViewList = ({gifts}) =>{
+    function showPurchased(purchased){
+        if(purchased) return (<p>This gift has been purchased</p>)
+        else return (<p></p>)
+    }
 
     return(
         <div className="Wishlist">
@@ -16,6 +15,8 @@ const Wishlist = ({gifts, getList, match}) =>{
                     <h3>{gift.name}</h3>
                     <p>{gift.gift_url}</p>
                     <p>{gift.description}</p>
+                    {showPurchased(gift.purchased)}
+                    <button>Mark as Purchased</button>
                 </div>
             ))}
         </div>
@@ -28,4 +29,4 @@ function mapStateToProps(state) {
     };
   }
 
-export default connect(mapStateToProps, { getList })(Wishlist);
+export default connect(mapStateToProps, { })(ViewList);
