@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getList } from '../../redux/actions/WishlistActions';
-import { EditList } from './EditList';
-import { ViewList } from './ViewList';
+import  EditList  from './EditList';
+import ViewList from './ViewList';
 
 const Wishlist = ({gifts, getList, match, user_id}) =>{
     const displayList = ()=>{
-        if (match.params.id === user_id) return <EditList gifts = {gifts}/>
+        console.log(match.params.id, user_id)
+        if (parseInt(match.params.id) === user_id) return <EditList gifts = {gifts}/>
         else return <ViewList gifts = {gifts}/> 
     }
     useEffect(()=>{
