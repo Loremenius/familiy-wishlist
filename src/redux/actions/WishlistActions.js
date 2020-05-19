@@ -8,6 +8,8 @@ export const GET_MEMBERS = "GET_MEMBERS";
 
 export const GET_LIST = 'GET_LIST';
 
+export const EDIT_GIFT = 'EDIT_GIFT';
+
 export const getFamiliesSuccess = data => ({
     type: GET_FAMILIES,
     payload: data
@@ -20,6 +22,11 @@ export const getMembersSuccess = data => ({
 
 export const getListSuccess = data => ({
     type: GET_LIST,
+    payload: data
+  });
+
+export const editGiftSuccess = data => ({
+    type: EDIT_GIFT,
     payload: data
   });
 
@@ -52,6 +59,18 @@ export function getList(id){
         return axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/${id}/list`)
             .then(response=>{
                 dispatch(getListSuccess(response.data));
+            })
+            .catch(error=>{
+                console.log(error);
+            })
+    }
+}
+
+export function editGift(user_id, gift_id, gift){
+    return function(dispatch){
+        return axiosWithAuth().put(`http://localhost:4000/api/user/wishlist/${user_id}/list/${gift_id}`, gift)
+            .then(data=>{
+                dispatch(editGiftSuccess(gift));
             })
             .catch(error=>{
                 console.log(error);
