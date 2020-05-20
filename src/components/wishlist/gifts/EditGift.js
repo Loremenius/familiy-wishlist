@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { editGift } from "../../../redux/actions/WishlistActions"
 
-const EditGift = ({name, description, gift_url}) =>{
+const EditGift = ({name, description, gift_url, user_id, id}) =>{
     const [gift, setGift] = useState({name, description, gift_url});
     function onChange(e){
         e.preventDefault();
@@ -10,9 +11,15 @@ const EditGift = ({name, description, gift_url}) =>{
             [e.target.name]:e.target.value
         })
     }
+
+    function onSubmit(e){
+        e.preventDefault();
+        editGift(user_id, id, gift);
+    }
+
     return(
         <div className="Wishlist">
-            <form>
+            <form onSubmit={onSubmit}>
                 <input 
                     type="text" 
                     value = {gift.name} 
@@ -37,7 +44,9 @@ const EditGift = ({name, description, gift_url}) =>{
 }
 
 function mapStateToProps(state) {
-    return {};
+    return {
+        user_id:state.loginReducer.user.user_id
+    };
   }
 
-export default connect(mapStateToProps, { })(EditGift);
+export default connect(mapStateToProps, { editGift })(EditGift);
