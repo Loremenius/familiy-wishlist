@@ -87,11 +87,12 @@ export function editGift(user_id, gift_id, gift, history){
     }
 }
 
-export function removeGift(user_id, gift_id){
+export function removeGift(user_id, gift_id, history){
     return function(dispatch){
-        return axiosWithAuth().delete()
+        return axiosWithAuth().delete(`http://localhost:4000/api/user/wishlist/${user_id}/list/${gift_id}`)
             .then(data=>{
-                dispatch(removeGiftSuccess());
+                dispatch(removeGiftSuccess(gift_id));
+                history.push(`/wishlist/${user_id}`);
             })
             .catch(error=>{
                 console.log(error);
