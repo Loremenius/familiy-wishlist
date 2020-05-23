@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { editGift } from "../../../redux/actions/WishlistActions";
+import { editGift, removeGift } from "../../../redux/actions/WishlistActions";
 import axiosWithAuth from "../../axiosWithAuth";
 
-const EditGift = ({ match, user_id, history }) =>{
+const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
     const [gift, setGift] = useState({name, description, gift_url});
     function onChange(e){
         e.preventDefault();
@@ -23,6 +23,11 @@ const EditGift = ({ match, user_id, history }) =>{
         editGift(user_id, id, gift, history);
     }
 
+    function onClickRemove(e){
+        e.preventDefault();
+        removeGift(user_id, id, history);
+    }
+
     useEffect(()=>{
 
         axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/list/${match.params.id}`)
@@ -40,7 +45,7 @@ const EditGift = ({ match, user_id, history }) =>{
 
     return(
         <div className="form">
-            <form onSubmit={onSubmit}>
+            <form>
                 <input 
                     type="text" 
                     value = {gift.name} 
@@ -58,7 +63,8 @@ const EditGift = ({ match, user_id, history }) =>{
                     name="gift_url" 
                     onChange={onChange}
                 />
-                <button>Edit Gift</button>
+                <button onClick={onSubmit}>Edit Gift</button>
+                <button onClick={onClickRemove}>Remove Gift</button>
             </form>
         </div>
     )
@@ -70,4 +76,4 @@ function mapStateToProps(state) {
     };
   }
 
-export default connect(mapStateToProps, { editGift })(EditGift);
+export default connect(mapStateToProps, { editGift, removeGift })(EditGift);
