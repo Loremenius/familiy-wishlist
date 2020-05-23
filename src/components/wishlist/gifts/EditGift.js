@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { editGift, removeGift } from "../../../redux/actions/WishlistActions";
-import axiosWithAuth from "../../axiosWithAuth";
+import { axiosWithAuth } from "../../axiosWithAuth";
 
 const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
-    const [gift, setGift] = useState({name, description, gift_url});
+    const [gift, setGift] = useState({name:'', description:'', gift_url:''});
     function onChange(e){
         e.preventDefault();
-
-        if(data.user_id !== user_id){
-            history.push('/home');
-        }
-
         setGift({
             ...gift,
             [e.target.name]:e.target.value
@@ -20,28 +15,33 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
 
     function onSubmit(e){
         e.preventDefault();
-        editGift(user_id, id, gift, history);
+        editGift(user_id, match.params.id, gift, history);
     }
 
     function onClickRemove(e){
         e.preventDefault();
-        removeGift(user_id, id, history);
+        removeGift(user_id, match.params.id, history);
     }
 
     useEffect(()=>{
 
         axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/list/${match.params.id}`)
-            .then(data=>{
+            .then(res=>{
+
+                if(res.data.user_id !== user_id){
+                    history.push('/home');
+                }
+
                 setGift({
                     ...gift,
-                    ...data
+                    ...res.data
                 });
             })
             .catch(error=>{
                 console.log(error);
             });
 
-    },[match.params.id]);
+    },[]);
 
     return(
         <div className="form">

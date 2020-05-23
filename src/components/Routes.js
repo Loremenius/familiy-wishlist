@@ -5,6 +5,7 @@ import Login from "./Login";
 import Home from './Home';
 import FamilyMembers from "./FamilyMembers";
 import Wishlist from "./wishlist"
+import EditGift from './wishlist/gifts/EditGift';
 
 const Routes = () =>{
 
@@ -17,6 +18,7 @@ const Routes = () =>{
             <Route path="/login" component = {Login}/>
             <Route path='/family/:family' component = {FamilyMembers}/>
             <Route path='/wishlist/:id' component = {Wishlist}/>
+            <Route path='/gift/:id' component = {EditGift}/>
 
         </div>
     )
