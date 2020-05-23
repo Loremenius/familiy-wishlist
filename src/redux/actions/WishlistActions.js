@@ -10,6 +10,8 @@ export const GET_LIST = 'GET_LIST';
 
 export const EDIT_GIFT = 'EDIT_GIFT';
 
+export const REMOVE_GIFT = 'REMOVE_GIFT';
+
 export const getFamiliesSuccess = data => ({
     type: GET_FAMILIES,
     payload: data
@@ -29,6 +31,12 @@ export const editGiftSuccess = data => ({
     type: EDIT_GIFT,
     payload: data
   });
+
+export const removeGiftSuccess = () =>({
+    type:REMOVE_GIFT,
+    payload:data
+});
+
 
 export function getFamilies(){
     return function(dispatch) {
@@ -66,11 +74,23 @@ export function getList(id){
     }
 }
 
-export function editGift(user_id, gift_id, gift){
+export function editGift(user_id, gift_id, gift, index){
     return function(dispatch){
         return axiosWithAuth().put(`http://localhost:4000/api/user/wishlist/${user_id}/list/${gift_id}`, gift)
             .then(data=>{
                 dispatch(editGiftSuccess(gift));
+            })
+            .catch(error=>{
+                console.log(error);
+            })
+    }
+}
+
+export function removeGift(user_id, gift_id, index){
+    return function(dispatch){
+        return axiosWithAuth().delete()
+            .then(data=>{
+                dispatch(removeGiftSuccess());
             })
             .catch(error=>{
                 console.log(error);
