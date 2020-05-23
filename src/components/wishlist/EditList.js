@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 const EditList = ({gifts}) =>{
@@ -11,8 +12,6 @@ const EditList = ({gifts}) =>{
                     <h3>{gift.name}</h3>
                     <p>{gift.gift_url}</p>
                     <p>{gift.description}</p>
-                    <button>Edit Gift</button>
-                    <button>Remove Gift</button>
                 </div>
             ))}
         </div>
