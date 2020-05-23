@@ -1,7 +1,5 @@
 // Use binary search on the array to find the index of the gift
-export default (arr, gift)=>{
-    //get id of the gift that is to be updated
-    const gift_id = gift.id;
+export default (arr, gift_id)=>{
     // set pointers for the ends of where we are looking and get the middle of those pointers
     let start = 0;
     let end = arr.length-1
