@@ -18,7 +18,7 @@ const EditGift = ({name, description, gift_url, user_id, id}) =>{
     }
 
     return(
-        <div className="Wishlist">
+        <div className="form">
             <form onSubmit={onSubmit}>
                 <input 
                     type="text" 
