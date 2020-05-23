@@ -74,11 +74,12 @@ export function getList(id){
     }
 }
 
-export function editGift(user_id, gift_id, gift){
+export function editGift(user_id, gift_id, gift, history){
     return function(dispatch){
         return axiosWithAuth().put(`http://localhost:4000/api/user/wishlist/${user_id}/list/${gift_id}`, gift)
             .then(data=>{
                 dispatch(editGiftSuccess(gift));
+                history.push(`/wishlist/${user_id}`);
             })
             .catch(error=>{
                 console.log(error);
