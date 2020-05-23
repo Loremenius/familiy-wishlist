@@ -32,9 +32,9 @@ export const editGiftSuccess = data => ({
     payload: data
   });
 
-export const removeGiftSuccess = () =>({
+export const removeGiftSuccess = (gift_id) =>({
     type:REMOVE_GIFT,
-    payload:data
+    payload:gift_id
 });
 
 
@@ -74,7 +74,7 @@ export function getList(id){
     }
 }
 
-export function editGift(user_id, gift_id, gift, index){
+export function editGift(user_id, gift_id, gift){
     return function(dispatch){
         return axiosWithAuth().put(`http://localhost:4000/api/user/wishlist/${user_id}/list/${gift_id}`, gift)
             .then(data=>{
@@ -86,7 +86,7 @@ export function editGift(user_id, gift_id, gift, index){
     }
 }
 
-export function removeGift(user_id, gift_id, index){
+export function removeGift(user_id, gift_id){
     return function(dispatch){
         return axiosWithAuth().delete()
             .then(data=>{

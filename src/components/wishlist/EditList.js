@@ -8,7 +8,7 @@ const EditList = ({gifts}) =>{
         <div className="Wishlist">
             {gifts.map((gift)=>(
                 <div className="gift" key={gift.id}>
-                    <Link>
+                    <Link to={`/gift/${gift.id}`}>
                         <h3>{gift.name}</h3>
                         <p>{gift.gift_url}</p>
                         <p>{gift.description}</p>
