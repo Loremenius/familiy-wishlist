@@ -3,10 +3,15 @@ import { connect } from "react-redux";
 import { editGift } from "../../../redux/actions/WishlistActions";
 import axiosWithAuth from "../../axiosWithAuth";
 
-const EditGift = ({match}) =>{
+const EditGift = ({ match, user_id, history }) =>{
     const [gift, setGift] = useState({name, description, gift_url});
     function onChange(e){
         e.preventDefault();
+
+        if(data.user_id !== user_id){
+            history.push('/home');
+        }
+
         setGift({
             ...gift,
             [e.target.name]:e.target.value
@@ -15,7 +20,7 @@ const EditGift = ({match}) =>{
 
     function onSubmit(e){
         e.preventDefault();
-        editGift(user_id, id, gift);
+        editGift(user_id, id, gift, history);
     }
 
     useEffect(()=>{
