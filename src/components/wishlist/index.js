@@ -6,7 +6,6 @@ import ViewList from './ViewList';
 
 const Wishlist = ({gifts, getList, match, user_id}) =>{
     const displayList = ()=>{
-        console.log(match.params.id, user_id)
         if (parseInt(match.params.id) === user_id) return <EditList gifts = {gifts}/>
         else return <ViewList gifts = {gifts}/> 
     }
