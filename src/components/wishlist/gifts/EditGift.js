@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { editGift } from "../../../redux/actions/WishlistActions"
+import { editGift } from "../../../redux/actions/WishlistActions";
+import axiosWithAuth from "../../axiosWithAuth";
 
-const EditGift = ({name, description, gift_url, user_id, id}) =>{
+const EditGift = ({match}) =>{
     const [gift, setGift] = useState({name, description, gift_url});
     function onChange(e){
         e.preventDefault();
@@ -16,6 +17,21 @@ const EditGift = ({name, description, gift_url, user_id, id}) =>{
         e.preventDefault();
         editGift(user_id, id, gift);
     }
+
+    useEffect(()=>{
+
+        axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/list/${match.params.id}`)
+            .then(data=>{
+                setGift({
+                    ...gift,
+                    ...data
+                });
+            })
+            .catch(error=>{
+                console.log(error);
+            });
+
+    },[match.params.id]);
 
     return(
         <div className="form">
