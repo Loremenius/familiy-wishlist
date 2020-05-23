@@ -9,7 +9,6 @@ const ViewList = ({gifts}) =>{
 
     return(
         <div className="Wishlist">
-            <h2>Wishlist</h2>
             {gifts.map((gift)=>(
                 <div className="gift" key={gift.id}>
                     <h3>{gift.name}</h3>
