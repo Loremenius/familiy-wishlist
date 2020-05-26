@@ -2,9 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 
 const ViewList = ({ gifts, history }) =>{
-    function showPurchased(purchased){
+    function showPurchased(purchased, user_id, gift_id){
         if(purchased) return (<p>This gift has been purchased</p>)
-        else return (<p></p>)
+        else return (
+        <button 
+            onClick={()=>history.push(`/wishlist/${user_id}/confirm/${gift_id}`)}
+        >
+            Mark as Purchased
+        </button>
+        )
     }
 
     return(
@@ -12,18 +18,12 @@ const ViewList = ({ gifts, history }) =>{
             {gifts.map((gift)=>(
                 <div className="gift" key={gift.id}>
                     <h3>{gift.name}</h3>
-                    
+
                     <p>{gift.gift_url}</p>
 
                     <p>{gift.description}</p>
 
-                    {showPurchased(gift.purchased)}
-
-                    <button 
-                        onClick={()=>history.push(`/wishlist/${gift.user_id}/confirm/${gift.id}`)}
-                    >
-                        Mark as Purchased
-                    </button>
+                    {showPurchased(gift.purchased, gift.user_id, gift.id)}
                 </div>
             ))}
         </div>
