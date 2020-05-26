@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { editGift, removeGift } from "../../../redux/actions/WishlistActions";
-import { axiosWithAuth } from "../../axiosWithAuth";
+import { editGift } from "../../../redux/actions/WishlistActions";
 
-const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
-    const [gift, setGift] = useState({name:'', description:'', gift_url:''});
+const EditGift = ({ match, user_id, history, editGift }) =>{
+    const [gift, setGift] = useState({ name:'', description:'', gift_url:'' });
     function onChange(e){
         e.preventDefault();
         setGift({
@@ -18,36 +17,11 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
         editGift(user_id, match.params.id, gift, history);
     }
 
-    function onClickRemove(e){
-        e.preventDefault();
-        removeGift(user_id, match.params.id, history);
-    }
-
     function onCancel(e){
         e.preventDefault();
         setGift({ name:'', description:'', gift_url:'' });
         history.push(`/wishlist/${user_id}`)
     }
-
-    useEffect(()=>{
-
-        axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/list/${match.params.id}`)
-            .then(res=>{
-
-                if(res.data.user_id !== user_id){
-                    history.push('/home');
-                }
-
-                setGift({
-                    ...gift,
-                    ...res.data
-                });
-            })
-            .catch(error=>{
-                console.log(error);
-            });
-
-    },[]);
 
     return(
         <div className="form">
@@ -69,8 +43,7 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
                     name="gift_url" 
                     onChange={onChange}
                 />
-                <button onClick={onSubmit}>Edit Gift</button>
-                <button onClick={onClickRemove}>Remove Gift</button>
+                <button onClick={onSubmit}>Add Gift</button>
                 <button onClick={onCancel}>Cancel</button>
             </form>
         </div>
