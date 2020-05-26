@@ -7,6 +7,7 @@ import FamilyMembers from "./FamilyMembers";
 import Wishlist from "./wishlist"
 import EditGift from './wishlist/gifts/EditGift';
 import ConfirmPurchased from "./wishlist/gifts/ConfirmPurchased";
+import AddGift from './wishlist/gifts/AddGift';
 
 const Routes = () =>{
 
@@ -20,7 +21,8 @@ const Routes = () =>{
             <Route path='/family/:family' component = { FamilyMembers }/>
             <Route path='/wishlist/:id' exact component = { Wishlist }/>
             <Route path='/wishlist/:id/confirm/:gift_id' component = { ConfirmPurchased }/>
-            <Route path='/gift/:id' component = { EditGift }/>
+            <Route path='/gift/:id' exact component = { EditGift }/>
+            <Route path='/wishlist/:id/add' exact component = { AddGift }/>
 
         </div>
     )

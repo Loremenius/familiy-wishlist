@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-const EditList = ({gifts}) =>{
+const EditList = ({ gifts, history, user_id }) =>{
 
     return(
         <div className="Wishlist">
+            <button onClick={()=>history.push(`/wishlist/${user_id}/add`)}>Add gift to wishlist</button>
             {gifts.map((gift)=>(
                 <div className="gift" key={gift.id}>
                     <Link to={`/gift/${gift.id}`}>
@@ -21,7 +22,8 @@ const EditList = ({gifts}) =>{
 
 function mapStateToProps(state) {
     return {
-      gifts:state.wishlistReducer.gifts
+      gifts:state.wishlistReducer.gifts,
+      user_id:state.loginReducer.user.user_id
     };
   }
 
