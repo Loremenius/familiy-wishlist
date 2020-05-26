@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { editGift } from "../../../redux/actions/WishlistActions";
+import { addGift } from "../../../redux/actions/WishlistActions";
 
-const EditGift = ({ match, user_id, history, editGift }) =>{
+const AddGift = ({ match, user_id, history, addGift }) =>{
     const [gift, setGift] = useState({ name:'', description:'', gift_url:'' });
     function onChange(e){
         e.preventDefault();
@@ -14,7 +14,7 @@ const EditGift = ({ match, user_id, history, editGift }) =>{
 
     function onSubmit(e){
         e.preventDefault();
-        editGift(user_id, match.params.id, gift, history);
+        addGift(user_id, match.params.id, gift, history);
     }
 
     function onCancel(e){
@@ -56,4 +56,4 @@ function mapStateToProps(state) {
     };
   }
 
-export default connect(mapStateToProps, { editGift, removeGift })(EditGift);
+export default connect(mapStateToProps, { addGift })(AddGift);

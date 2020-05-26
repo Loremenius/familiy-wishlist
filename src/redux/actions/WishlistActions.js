@@ -95,3 +95,15 @@ export function confirmPurchased(user_id, gift_id, history){
             })
     }
 }
+
+export function addGift(user_id, gift, history){
+    return function(dispatch){
+        return axiosWithAuth().post(`http://localhost:4000/api/user/wishlist/${user_id}/list/`, gift)
+            .then(data=>{
+                history.push(`/wishlist/${user_id}`);
+            })
+            .catch(error=>{
+                console.log(error);
+            })
+    }
+}

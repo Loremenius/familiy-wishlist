@@ -6,7 +6,7 @@ import ViewList from './ViewList';
 
 const Wishlist = ({gifts, getList, match, user_id, history}) =>{
     const displayList = ()=>{
-        if (parseInt(match.params.id) === user_id) return <EditList gifts = {gifts}/>
+        if (parseInt(match.params.id) === user_id) return <EditList gifts = {gifts} history = {history}/>
         else return <ViewList gifts = {gifts} history = {history}/> 
     }
     useEffect(()=>{
