@@ -26,23 +26,32 @@ const AddGift = ({ user_id, history, addGift }) =>{
     return(
         <div className="form">
             <form>
-                <input 
-                    type="text" 
-                    value = {gift.name} 
-                    name="name" 
-                    onChange={onChange}
-                />
-                <input 
-                    type="text" 
-                    value = {gift.description} 
-                    name="description" 
-                    onChange={onChange}
-                />
-                <input type="text" 
-                    value = {gift.gift_url} 
-                    name="gift_url" 
-                    onChange={onChange}
-                />
+                <label>
+                    <p>Gift name (required)</p>
+                    <input 
+                        type="text" 
+                        value = {gift.name} 
+                        name="name" 
+                        onChange={onChange}
+                    />
+                </label>
+                <label>
+                    <p>Gift description (optional)</p>
+                    <input 
+                        type="text" 
+                        value = {gift.description} 
+                        name="description" 
+                        onChange={onChange}
+                    />
+                </label>
+                <label>
+                    <p>Gift URL/Link (optional)</p>
+                    <input type="text" 
+                        value = {gift.gift_url} 
+                        name="gift_url" 
+                        onChange={onChange}
+                    />
+                </label>
                 <button onClick={onSubmit}>Add Gift</button>
                 <button onClick={onCancel}>Cancel</button>
             </form>

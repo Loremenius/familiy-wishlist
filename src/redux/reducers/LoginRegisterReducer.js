@@ -26,6 +26,7 @@ export const reducer = (state = initialState, action) => {
                 user: action.payload.user,
                 isFetching: false,
                 error: null,
+                showNavbar:true,
 
             }
         case LOGOUT_USER:
@@ -49,4 +50,5 @@ const initialState = {
     user:{},
     error:null,
     isFetching:false,
+    showNavbar: false
 };
