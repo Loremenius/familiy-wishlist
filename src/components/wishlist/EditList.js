@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-const EditList = ({ gifts, history, user_id }) =>{
+const EditList = ({ gifts, history, user_id, match }) =>{
 
     return(
         <div className="Wishlist">
-            <button onClick={()=>history.push(`/wishlist/${user_id}/add`)}>Add gift to wishlist</button>
+            <button onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/add`)}>Add gift to wishlist</button>
             {gifts.map((gift)=>(
                 <div className="gift" key={gift.id}>
-                    <Link to={`/gift/${gift.id}`}>
+                    <Link to={`/wishlist/${match.params.family}/${user_id}/edit/${gift.id}`}>
                         <h3>{gift.name}</h3>
                         <p>{gift.gift_url}</p>
                         <p>{gift.description}</p>

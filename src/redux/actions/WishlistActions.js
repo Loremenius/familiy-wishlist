@@ -48,11 +48,11 @@ export function getList(id){
     }
 }
 
-export function editGift(user_id, gift_id, gift, history){
+export function editGift(user_id, gift_id, gift, family, history){
     return function(dispatch){
         return axiosWithAuth().put(`http://localhost:4000/api/user/wishlist/${user_id}/list/${gift_id}`, gift)
             .then(data=>{
-                history.push(`/wishlist/${user_id}`);
+                history.push(`/wishlist/${family}/${user_id}`);
             })
             .catch(error=>{
                 console.log(error);
@@ -60,11 +60,11 @@ export function editGift(user_id, gift_id, gift, history){
     }
 }
 
-export function removeGift(user_id, gift_id, history){
+export function removeGift(user_id, gift_id, family, history){
     return function(dispatch){
         return axiosWithAuth().delete(`http://localhost:4000/api/user/wishlist/${user_id}/list/${gift_id}`)
             .then(data=>{
-                history.push(`/wishlist/${user_id}`);
+                history.push(`/wishlist/${family}/${user_id}`);
             })
             .catch(error=>{
                 console.log(error);
@@ -72,11 +72,11 @@ export function removeGift(user_id, gift_id, history){
     }
 }
 
-export function confirmPurchased(user_id, gift_id, history){
+export function confirmPurchased(user_id, gift_id, family, history){
     return function(dispatch){
         return axiosWithAuth().put(`http://localhost:4000/api/user/wishlist/${user_id}/list/${gift_id}/purchased`)
             .then(data=>{
-                history.push(`/wishlist/${user_id}`);
+                history.push(`/wishlist/${family}/${user_id}`);
             })
             .catch(error=>{
                 console.log(error);
@@ -84,11 +84,11 @@ export function confirmPurchased(user_id, gift_id, history){
     }
 }
 
-export function addGift(user_id, gift, history){
+export function addGift(user_id, gift, family, history){
     return function(dispatch){
         return axiosWithAuth().post(`http://localhost:4000/api/user/wishlist/${user_id}/list`, gift)
             .then(data=>{
-                history.push(`/wishlist/${user_id}`);
+                history.push(`/wishlist/${family}/${user_id}`);
             })
             .catch(error=>{
                 console.log(error);

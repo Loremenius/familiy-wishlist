@@ -8,7 +8,12 @@ const FamilyMembers = ({families, match}) =>{
         <div className="FamilyMembers">
             <h2>The {match.params.family} Family</h2>
             {families[match.params.family].members.map((member)=>(
-                 <Link to={`/wishlist/${member.id}`} key={member.id}>View {member.firstname} {member.lastname}'s wishlist</Link>
+                 <Link 
+                    to={`/wishlist/${match.params.family}/${member.id}`} 
+                    key={member.id}
+                >
+                    View {member.firstname} {member.lastname}'s wishlist
+                </Link>
             ))}
         </div>
     )

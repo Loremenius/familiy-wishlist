@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addGift } from "../../../redux/actions/WishlistActions";
 
-const AddGift = ({ user_id, history, addGift }) =>{
+const AddGift = ({ user_id, history, addGift, match }) =>{
     const [gift, setGift] = useState({ name: '', description: '', gift_url: '', user_id: user_id });
     function onChange(e){
         e.preventDefault();
@@ -14,13 +14,13 @@ const AddGift = ({ user_id, history, addGift }) =>{
 
     function onSubmit(e){
         e.preventDefault();
-        addGift(user_id, gift, history);
+        addGift(user_id, gift, match.params.family, history);
     }
 
     function onCancel(e){
         e.preventDefault();
         setGift({ name:'', description:'', gift_url:'' });
-        history.push(`/wishlist/${user_id}`)
+        history.push(`/wishlist/${match.params.family}/${user_id}`)
     }
 
     return(

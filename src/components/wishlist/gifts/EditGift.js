@@ -15,23 +15,23 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
 
     function onSubmit(e){
         e.preventDefault();
-        editGift(user_id, match.params.id, gift, history);
+        editGift(user_id, match.params.gift_id, gift, match.params.family, history);
     }
 
     function onClickRemove(e){
         e.preventDefault();
-        removeGift(user_id, match.params.id, history);
+        removeGift(user_id, match.params.gift_id, match.params.family, history);
     }
 
     function onCancel(e){
         e.preventDefault();
         setGift({ name:'', description:'', gift_url:'' });
-        history.push(`/wishlist/${user_id}`)
+        history.push(`/wishlist/${match.params.family}/${user_id}`)
     }
 
     useEffect(()=>{
 
-        axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/list/${match.params.id}`)
+        axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/list/${match.params.gift_id}`)
             .then(res=>{
 
                 if(res.data.user_id !== user_id){

@@ -13,7 +13,7 @@ const ConfirmPurchased = ({ match, history, gifts, confirmPurchased }) =>{
     },[]);
 
     function confirm(){
-        confirmPurchased(match.params.id, match.params.gift_id, history);
+        confirmPurchased(match.params.id, match.params.gift_id, match.params.family, history);
     }
 
     return (
@@ -27,7 +27,7 @@ const ConfirmPurchased = ({ match, history, gifts, confirmPurchased }) =>{
             </button>
 
             <button 
-                onClick={ ()=> history.push(`/wishlist/${match.params.id}`) }
+                onClick={ ()=> history.push(`/wishlist/${match.params.family}/${match.params.id}`) }
             >
                 Cancel
             </button>

@@ -12,8 +12,7 @@ const Login = ({ loginUser, history }) =>{
     }
 
     const onSubmit = (e) =>{
-        e.preventDefault()
-        console.log(user)
+        e.preventDefault();
         loginUser(user, history);
     }
 

@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const ViewList = ({ gifts, history }) =>{
+const ViewList = ({ gifts, history, match }) =>{
     function showPurchased(purchased, user_id, gift_id){
         if(purchased) return (<p>This gift has been purchased</p>)
         else return (
         <button 
-            onClick={()=>history.push(`/wishlist/${user_id}/confirm/${gift_id}`)}
+            onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/confirm/${gift_id}`)}
         >
             Mark as Purchased
         </button>

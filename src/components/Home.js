@@ -11,9 +11,9 @@ const Home = ({families, user, getFamilies}) =>{
     return(
         <div className="Home">
             <h1>Welcome {user.username}</h1>
-            <Link to={`/wishlist/${user.user_id}`}>Click here to view your Wishlist!</Link>
+            <Link to={`/wishlist/${user.lastname}/${user.user_id}`}>Click here to view your Wishlist!</Link>
             {Object.keys(families).map((family)=>(
-                 <Link to={`/family/${family}`} key={family}>View {family} members</Link>
+                 <Link to={`/wishlist/${family}`} key={family}>View {family} members</Link>
             ))}
         </div>
     )
