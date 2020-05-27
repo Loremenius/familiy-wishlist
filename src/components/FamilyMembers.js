@@ -1,18 +1,13 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import { connect } from "react-redux";
-import { getMembers } from '../redux/actions/WishlistActions';
 
-const FamilyMembers = ({members, getMembers, match}) =>{
-
-    useEffect(()=>{
-        getMembers(match.params.family);
-    },[]);
+const FamilyMembers = ({families, match}) =>{
 
     return(
         <div className="FamilyMembers">
             <h2>The {match.params.family} Family</h2>
-            {members.map((member)=>(
+            {families[match.params.family].members.map((member)=>(
                  <Link to={`/wishlist/${member.id}`} key={member.id}>View {member.firstname} {member.lastname}'s wishlist</Link>
             ))}
         </div>
@@ -21,8 +16,8 @@ const FamilyMembers = ({members, getMembers, match}) =>{
 
 function mapStateToProps(state) {
     return {
-      members:state.wishlistReducer.members
+      families:state.wishlistReducer.families
     };
   }
 
-export default connect(mapStateToProps, { getMembers })(FamilyMembers);
+export default connect(mapStateToProps, { })(FamilyMembers);

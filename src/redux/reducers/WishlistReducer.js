@@ -12,11 +12,6 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 families: action.payload,
             }
-        case GET_MEMBERS:
-            return {
-                ...state,
-                members: action.payload,
-            }
         case GET_LIST:
             return {
                 ...state,
@@ -28,7 +23,6 @@ export const reducer = (state = initialState, action) => {
 }
 
 const initialState = {
-    members:[],
-    families:[],
+    families:{},
     gifts:[],
 };
