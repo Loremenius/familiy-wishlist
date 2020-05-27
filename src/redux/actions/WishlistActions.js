@@ -4,7 +4,8 @@ import { axiosWithAuth } from '../../components/axiosWithAuth';
 
 export const GET_FAMILIES = "GET_FAMILIES";
 
-export const GET_LIST = 'GET_LIST';
+export const GET_LIST_SUCCESS = 'GET_LIST_SUCCESS';
+export const GET_LIST_LOADING = 'GET_LIST_LOADING';
 
 export const getFamiliesSuccess = data => ({
     type: GET_FAMILIES,
@@ -13,8 +14,12 @@ export const getFamiliesSuccess = data => ({
 
 
 export const getListSuccess = data => ({
-    type: GET_LIST,
+    type: GET_LIST_SUCCESS,
     payload: data
+  });
+
+export const getListLoading = () => ({
+    type: GET_LIST_LOADING
   });
 
 
@@ -32,6 +37,7 @@ export function getFamilies(){
 
 export function getList(id){
     return function(dispatch) {
+        dispatch(getListLoading());
         return axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/${id}/list`)
             .then(response=>{
                 dispatch(getListSuccess(response.data));

@@ -1,8 +1,8 @@
 
 import {
     GET_FAMILIES,
-    GET_MEMBERS,
-    GET_LIST,
+    GET_LIST_SUCCESS,
+    GET_LIST_LOADING,
     } from "../actions/WishlistActions";
 
 export const reducer = (state = initialState, action) => {
@@ -12,10 +12,17 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 families: action.payload,
             }
-        case GET_LIST:
+        case GET_LIST_SUCCESS:
             return {
                 ...state,
                 gifts: action.payload,
+                isFetching:false
+            }
+        case GET_LIST_LOADING:
+            return {
+                ...state,
+                gifts:[],
+                isFetching:true
             }
         default:
             return state;
@@ -25,4 +32,5 @@ export const reducer = (state = initialState, action) => {
 const initialState = {
     families:{},
     gifts:[],
+    isFetching:false
 };
