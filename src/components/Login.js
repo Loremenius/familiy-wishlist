@@ -22,8 +22,24 @@ const Login = ({ loginUser, history }) =>{
         <div className = "login">
             <h2>Please Login</h2>
             <form className = "loginForm" onSubmit={onSubmit}>
-                <input type="text" value = {user.username} name="username" onChange={onChange}/>
-                <input type="password" value={user.password} name = "password" onChange={onChange}/>
+                <label>
+                    <p>Username</p>
+                    <input 
+                        type="text" 
+                        value = {user.username} 
+                        name="username" 
+                        onChange={onChange}
+                    />
+                </label>
+                <label>
+                    <p>Passwword</p>
+                    <input 
+                        type="password"
+                        value={user.password} 
+                        name = "password" 
+                        onChange={onChange}
+                    />
+                </label>
                 <button> Login </button>
             </form>
         </div>
