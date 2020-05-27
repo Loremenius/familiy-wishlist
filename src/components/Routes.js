@@ -8,6 +8,7 @@ import Wishlist from "./wishlist"
 import EditGift from './wishlist/gifts/EditGift';
 import ConfirmPurchased from "./wishlist/gifts/ConfirmPurchased";
 import AddGift from './wishlist/gifts/AddGift';
+import PrivateRoute from './PrivateRoute';
 
 const Routes = () =>{
 
@@ -16,13 +17,13 @@ const Routes = () =>{
 
             <Route exact path="/" component={ Landing }/>
             <Route path="/register"/>
-            <Route path="/home" component={ Home }/>
+            <PrivateRoute path="/home" component={ Home }/>
             <Route path="/login" component = { Login }/>
-            <Route path='/family/:family' component = { FamilyMembers }/>
-            <Route path='/wishlist/:id' exact component = { Wishlist }/>
-            <Route path='/wishlist/:id/confirm/:gift_id' component = { ConfirmPurchased }/>
-            <Route path='/gift/:id' exact component = { EditGift }/>
-            <Route path='/wishlist/:id/add' exact component = { AddGift }/>
+            <PrivateRoute path='/family/:family' component = { FamilyMembers }/>
+            <PrivateRoute path='/wishlist/:id' exact component = { Wishlist }/>
+            <PrivateRoute path='/wishlist/:id/confirm/:gift_id' component = { ConfirmPurchased }/>
+            <PrivateRoute path='/gift/:id' exact component = { EditGift }/>
+            <PrivateRoute path='/wishlist/:id/add' exact component = { AddGift }/>
 
         </div>
     )

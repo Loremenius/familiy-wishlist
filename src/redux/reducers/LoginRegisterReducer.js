@@ -26,7 +26,6 @@ export const reducer = (state = initialState, action) => {
                 user: action.payload.user,
                 isFetching: false,
                 error: null,
-                navState:"I am in show logout but"
 
             }
         case LOGOUT_USER:
