@@ -187,28 +187,21 @@ a:hover {
   width: 35%;
   padding: 2rem;
 }
-@media (max-width:500px) {
-  .viewLinks {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-  }
-  .viewLinks a {
-    width: 100%;
-  }
-}
 .App {
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
   align-items: center;
 }
-@media (max-width:500px) {
-  .App {
-    max-width: 100%;
-  }
+nav {
+  width: 100%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: grey;
 }
 form {
   padding: 1rem;
@@ -252,11 +245,6 @@ form .error {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-@media (max-width:500px) {
-  .login {
-    width: 100%;
-  }
-}
 .register {
   display: flex;
   flex-direction: column;
@@ -274,11 +262,6 @@ form .error {
 .register button {
   width: 20rem;
 }
-@media (max-width:500px) {
-  .register {
-    width: 100%;
-  }
-}
 .home {
   margin: 2rem;
   display: flex;
@@ -286,11 +269,6 @@ form .error {
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-}
-@media (max-width:500px) {
-  .home {
-    text-align: center;
-  }
 }
 .familyMembers {
   margin: 2rem;
@@ -301,7 +279,35 @@ form .error {
   flex-wrap: nowrap;
 }
 @media (max-width:500px) {
+  .App {
+    max-width: 100%;
+  }
+  .viewLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .viewLinks a {
+    width: 100%;
+  }
   .familyMembers {
     text-align: center;
+  }
+  .home {
+    text-align: center;
+  }
+  .login {
+    width: 100%;
+  }
+  .register {
+    width: 100%;
+  }
+  nav {
+    padding: 1rem;
+  }
+  nav a {
+    padding: 0.5rem;
   }
 }

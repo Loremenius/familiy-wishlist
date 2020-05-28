@@ -6,7 +6,6 @@ const NavBar = ({ families, user }) =>{
 
     return (
         <nav className = "navBar">
-            <Link to={'/home'}>Home</Link>
             <Link to={`/wishlist/${user.lastname}/${user.user_id}`}>Your Wishlist</Link>
             {Object.keys(families).map((family)=>(
                  <Link to={`/wishlist/${family}`} key={family}> {family} </Link>
