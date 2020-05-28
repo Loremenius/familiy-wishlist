@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './css/index.css';
 import Routes from "./components/Routes";
 import NavBar from "./components/NavBar";
 import { connect } from "react-redux";

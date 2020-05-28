@@ -1,0 +1,22 @@
+// Mixins Here
+.displayFlex(@direction:row,@justify:flex-start,@align:flex-start){
+    display:flex;
+    flex-direction: @direction;
+    justify-content: @justify;
+    align-items: @align;
+}
+
+.imgCurve(){
+    border-radius: 5px;
+}
+
+.button(@color,@bgColor,@borderRad){
+    width:30%;
+    font-size:2rem;
+    color:@color;
+    background-color: @bgColor;
+    border-radius: @borderRad;
+    padding: 15px;
+    text-align:center;
+
+}

@@ -39,7 +39,7 @@ const Login = ({ loginUser, history, error, setError }) =>{
             <h2>Please Login</h2>
             <form className = "loginForm" onSubmit={onSubmit}>
                 <label>
-                    <p>Username</p>
+                    <p>Username:</p>
                     <input 
                         type="text" 
                         value = {user.username} 
@@ -48,7 +48,7 @@ const Login = ({ loginUser, history, error, setError }) =>{
                     />
                 </label>
                 <label>
-                    <p>Passwword</p>
+                    <p>Passwword:</p>
                     <input 
                         type="password"
                         value={user.password} 
@@ -57,8 +57,8 @@ const Login = ({ loginUser, history, error, setError }) =>{
                     />
                 </label>
                 <button> Login </button>
+                {displayError()}
             </form>
-            {displayError()}
             <Link to='/register'>Register new user</Link>
         </div>
     )
