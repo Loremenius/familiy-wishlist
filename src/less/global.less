@@ -52,5 +52,22 @@
   a:hover {
     text-decoration: underline;
 }
+
+.viewLinks {
+    width:100%;
+    margin:2rem;
+    .displayFlex(row, space-between, stretch, wrap);
+    a {
+        width:35%;
+        padding:2rem;
+    }
+}
+
+@media @phone {
+    .viewLinks {
+        .displayFlex(column, center, center);
+        a { width:100%; }
+    } 
+}
   
   

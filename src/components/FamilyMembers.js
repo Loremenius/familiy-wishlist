@@ -5,16 +5,18 @@ import { connect } from "react-redux";
 const FamilyMembers = ({families, match}) =>{
 
     return(
-        <div className="FamilyMembers">
+        <div className="familyMembers">
             <h2>The {match.params.family} Family</h2>
-            {families[match.params.family].members.map((member)=>(
-                 <Link 
-                    to={`/wishlist/${match.params.family}/${member.id}`} 
-                    key={member.id}
-                >
-                    View {member.firstname} {member.lastname}'s wishlist
-                </Link>
-            ))}
+            <div className='viewLinks'>
+                {families[match.params.family].members.map((member)=>(
+                    <Link 
+                        to={`/wishlist/${match.params.family}/${member.id}`} 
+                        key={member.id}
+                    >
+                        View {member.firstname}'s wishlist
+                    </Link>
+                ))}
+            </div>
         </div>
     )
 }

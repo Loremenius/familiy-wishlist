@@ -9,12 +9,14 @@ const Home = ({families, user, getFamilies}) =>{
     },[]);
 
     return(
-        <div className="Home">
-            <h1>Welcome {user.username}</h1>
-            <Link to={`/wishlist/${user.lastname}/${user.user_id}`}>Click here to view your Wishlist!</Link>
-            {Object.keys(families).map((family)=>(
-                 <Link to={`/wishlist/${family}`} key={family}>View {family} members</Link>
-            ))}
+        <div className="home">
+            <h2>Welcome {user.firstname}</h2>
+            <div className= "viewLinks">
+                <Link to={`/wishlist/${user.lastname}/${user.user_id}`}>View your wishlist</Link>
+                {Object.keys(families).map((family)=>(
+                    <Link to={`/wishlist/${family}`} key={family}>View {family} family</Link>
+                ))}
+            </div>
         </div>
     )
 }
