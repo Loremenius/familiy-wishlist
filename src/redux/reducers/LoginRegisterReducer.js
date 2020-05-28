@@ -3,7 +3,11 @@ import {
     LOGIN_USER_LOADING,
     LOGIN_USER_FAILED,
     LOGIN_USER_SUCCESS, 
-    LOGOUT_USER
+    LOGOUT_USER,
+    REGISTER_USER_LOADING,
+    REGISTER_USER_FAILED,
+    REGISTER_USER_SUCCESS,
+    SET_ERROR
     } from "../actions/LoginRegisterActions";
 
 export const reducer = (state = initialState, action) => {
@@ -41,6 +45,30 @@ export const reducer = (state = initialState, action) => {
                 isFetching:false,
                 navState: ""
             }
+        case REGISTER_USER_LOADING:
+            return {
+                ...state,
+                isFetching: true,
+                error: null
+            };
+        case REGISTER_USER_FAILED:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }
+        case REGISTER_USER_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                error: null,
+
+            }
+        case SET_ERROR:
+             return {
+                ...state,
+                error: action.payload
+                }
         default:
             return state;
     }
