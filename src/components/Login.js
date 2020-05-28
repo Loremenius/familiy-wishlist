@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { connect } from "react-redux";
 import { loginUser } from '../redux/actions/LoginRegisterActions';
+import { Link } from "react-router-dom";
 
 const Login = ({ loginUser, history }) =>{
     const [user, setUser] = useState({username:"", password:""});
@@ -41,6 +42,7 @@ const Login = ({ loginUser, history }) =>{
                 </label>
                 <button> Login </button>
             </form>
+            <Link to='/register'>Register new user</Link>
         </div>
     )
 }

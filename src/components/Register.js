@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { connect } from "react-redux";
 import { registerUser, setError } from '../redux/actions/LoginRegisterActions';
+import fixNameCasing from '../redux/reducers/functions/fixNameCasing';
 
 const Login = ({ registerUser, history, error, setError }) =>{
     //sets authorization password to variable passed by environment. Otherwise uses string as password.
@@ -38,12 +39,16 @@ const Login = ({ registerUser, history, error, setError }) =>{
             // check to see if password passed by user is the same as the authorization password
             if(auth == authorization){
                 // if password is correct. call action to send data to back-end.
-                registerUser(user, history);
+
+                // send firstname and last name to fixNameCasing function to convert them to correct casing. (Returns object)
+                const name = fixNameCasing(user.firstname, user.lastname);
+                // create new object merging user and name together
+                const data = { ...user, ...name }
+                // call action to send data to back-end.
+                registerUser(data, history);
             
             // if the password is incorrect. change error to display it.
             } else {
-                console.log(auth);
-                console.log(authorization);
                 setError('Authorization is incorrect');
             }
 

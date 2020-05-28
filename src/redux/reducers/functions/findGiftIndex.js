@@ -17,6 +17,7 @@ export default (arr, gift_id)=>{
         // console.log(`start:${arr[start].id}, index: ${start}`);
         // console.log(`middle:${arr[curr_index].id}, index: ${curr_index}`);
         // console.log(`end:${arr[end].id}, index: ${end}`);
+        
         // if the wanted gift id is smaller then the gift id at current index: make end pointer current index
         if(gift_id <= arr[curr_index].id) end = curr_index;
         // otherwise: make start pointer current index
