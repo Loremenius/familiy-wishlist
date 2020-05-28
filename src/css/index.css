@@ -164,6 +164,7 @@ button {
   font-size: 1.75rem;
   border-radius: 1rem;
   width: 10rem;
+  margin: 2rem;
 }
 a {
   font-size: 2rem;
@@ -187,15 +188,18 @@ form {
   align-items: center;
 }
 form label {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
 }
 form label p {
+  width: 17rem;
   padding: 1rem;
 }
 form input {
+  width: 60%;
   font-size: 1.75rem;
   align-self: center;
   border-radius: 1rem;
@@ -203,7 +207,7 @@ form input {
 form .error {
   font-size: 2rem;
   color: red;
-  padding: 2rem;
+  margin: 2rem;
 }
 .login {
   display: flex;
@@ -214,4 +218,30 @@ form .error {
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+@media (max-width:500px) {
+  .login {
+    width: 100%;
+  }
+}
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.register .note {
+  font-size: 1.5rem;
+}
+.register button {
+  width: 20rem;
+}
+@media (max-width:500px) {
+  .register {
+    width: 100%;
+  }
 }

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { registerUser, setError } from '../redux/actions/LoginRegisterActions';
 import fixNameCasing from '../redux/reducers/functions/fixNameCasing';
@@ -65,10 +66,10 @@ const Login = ({ registerUser, history, error, setError }) =>{
     return (
 
         <div className = "register">
-            <h2>Register a new user.</h2>
+            <h2>Register a New User</h2>
             <form className = "registerForm" onSubmit={onSubmit}>
                 <label>
-                    <p>Username</p>
+                    <p>Username: </p>
                     <input 
                         type="text" 
                         value = {user.username} 
@@ -77,7 +78,7 @@ const Login = ({ registerUser, history, error, setError }) =>{
                     />
                 </label>
                 <label>
-                    <p>Passwword</p>
+                    <p>Password: </p>
                     <input 
                         type="password"
                         value={user.password} 
@@ -86,7 +87,7 @@ const Login = ({ registerUser, history, error, setError }) =>{
                     />
                 </label>
                 <label>
-                    <p>First name</p>
+                    <p>First name: </p>
                     <input 
                         type="text"
                         value={user.firstname} 
@@ -95,7 +96,7 @@ const Login = ({ registerUser, history, error, setError }) =>{
                     />
                 </label>
                 <label>
-                    <p>Last name</p>
+                    <p>Last name: </p>
                     <input 
                         type="text"
                         value={user.lastname} 
@@ -104,8 +105,7 @@ const Login = ({ registerUser, history, error, setError }) =>{
                     />
                 </label>
                 <label>
-                    <p>Authorization password</p>
-                    <p>Note: This password is required to allow you to create a new user.</p>
+                    <p>Authorization: </p>
                     <input 
                         type="password"
                         value={auth} 
@@ -113,9 +113,11 @@ const Login = ({ registerUser, history, error, setError }) =>{
                         onChange={onChange}
                     />
                 </label>
+                <p className='note' >Note: This password is required to allow you to create a new user.</p>
                 <button> Register new user </button>
                 {displayError()}
             </form>
+            <Link to='/login'>Login</Link>
         </div>
     )
 }
