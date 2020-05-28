@@ -11,7 +11,7 @@ const Wishlist = ({gifts, getList, match, user_id, history}) =>{
     }
     useEffect(()=>{
         getList(match.params.id);
-    },[]);
+    },[match.params.id]);
 
     return(
         <div className="Wishlist">
