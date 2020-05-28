@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { connect } from "react-redux";
 import { loginUser, setError } from '../redux/actions/LoginRegisterActions';
 import { Link } from "react-router-dom";
@@ -33,6 +33,10 @@ const Login = ({ loginUser, history, error, setError }) =>{
         else return (<p></p>)
     }
 
+    useEffect(()=>{
+        setError('');
+    },[]);
+
     return (
 
         <div className = "login">
@@ -48,7 +52,7 @@ const Login = ({ loginUser, history, error, setError }) =>{
                     />
                 </label>
                 <label>
-                    <p>Passwword:</p>
+                    <p>Password:</p>
                     <input 
                         type="password"
                         value={user.password} 

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { connect } from "react-redux";
 import { registerUser, setError } from '../redux/actions/LoginRegisterActions';
 import fixNameCasing from '../redux/reducers/functions/fixNameCasing';
@@ -57,6 +57,10 @@ const Login = ({ registerUser, history, error, setError }) =>{
             setError('All fields are required');
         }
     }
+
+    useEffect(()=>{
+        setError('');
+    },[]);
 
     return (
 
