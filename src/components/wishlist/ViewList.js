@@ -24,18 +24,20 @@ const ViewList = ({ gifts, history, match }) =>{
     }
 
     return(
-        <div className="wishlist">
-            {gifts.map((gift)=>(
-                <div className="gift" key={gift.id}>
-                    <h3>{gift.name}</h3>
+        <div className='viewList'>
+            <div className="wishlist">
+                {gifts.map((gift)=>(
+                    <div className="gift" key={gift.id}>
+                        <h3>{gift.name}</h3>
 
-                    {createLinkToGift(gift.gift_url)}
+                        {createLinkToGift(gift.gift_url)}
 
-                    <p>{gift.description}</p>
+                        <p>{gift.description}</p>
 
-                    {showPurchased(gift.purchased, gift.user_id, gift.id)}
-                </div>
-            ))}
+                        {showPurchased(gift.purchased, gift.user_id, gift.id)}
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

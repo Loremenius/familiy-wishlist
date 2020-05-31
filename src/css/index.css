@@ -296,7 +296,7 @@ form .error {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 .gift h3 {
   text-align: center;
@@ -355,7 +355,7 @@ form .error {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
   }
   .gift p {
