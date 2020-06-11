@@ -285,6 +285,32 @@ form .error {
   align-items: center;
   flex-wrap: wrap;
 }
+.viewList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.editList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.editList .add {
+  width: 20rem;
+  padding: 0.75rem;
+}
+.indexList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding-top: 2rem;
+}
 .gift {
   margin: 2rem;
   padding: 1rem;

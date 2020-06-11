@@ -5,7 +5,7 @@ const EditList = ({ gifts, history, user_id, match }) =>{
 
     return(
         <div className = 'editList'>
-            <button onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/add`)}>Add gift to wishlist</button>
+            <button className="add" onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/add`)}>Add gift to wishlist</button>
             <div className="wishlist">
                 {gifts.map((gift)=>(
                     <div className="gift" key={gift.id} onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/edit/${gift.id}`)}>
