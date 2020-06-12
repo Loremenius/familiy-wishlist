@@ -78,7 +78,7 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
                         onChange={onChange}
                     />
                 </label>
-                <button onClick={onSubmit}>Edit Gift</button>
+                <button onClick={onSubmit}>Update Gift</button>
                 <button onClick={onClickRemove}>Remove Gift</button>
                 <button onClick={onCancel}>Cancel</button>
             </form>
