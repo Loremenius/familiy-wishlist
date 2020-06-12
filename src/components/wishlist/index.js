@@ -17,6 +17,7 @@ const Wishlist = ({gifts, getList, match, user_id, history, families}) =>{
     return(
         <div className="indexList">
             <h2>{user.firstname}'s Wishlist</h2>
+            <hr class="solid"/>
             {displayList()}
         </div>
     )

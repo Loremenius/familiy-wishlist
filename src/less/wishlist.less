@@ -13,8 +13,21 @@
         width:20rem;
         padding:0.75rem
     }
-     .gift:hover{
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     .gift:hover{ 
+       background-color: @button-hover;
+       border-radius: 5rem;
+       transition: all 0.3s ease 0s;
+       h3 { 
+        color: @link-color;
+       }
+
+       p { 
+        color: @link-color;
+       }
+
+       a { 
+        color: @header-font-color;
+       }
      }
 }
 
@@ -27,11 +40,12 @@
     background-color: @gift-background-color;
     margin: 2rem;
     padding: 1rem;
-    width:40%;
+    width:45%;
     height: 25rem;
     border: 0.3rem solid @gift-border-color;
     border-radius: 1rem;
     .displayFlex(column, flex-start, center, wrap);
+    transition: all 0.3s ease 0s;
     h3 {
         text-align:center;
         font-size: 3rem;
@@ -48,7 +62,7 @@
     }
     .purchased {
         font-size: 2rem;
-        color:red;
+        color: @purchased-color;
         padding-top: 1rem;
     }
 }

@@ -164,7 +164,7 @@ button {
   color: #701916;
   font-size: 2rem;
   padding: 1rem;
-  border: 4px solid #701916;
+  border: 2px solid #701916;
   border-radius: 6px;
   display: inline-block;
   transition: all 0.3s ease 0s;
@@ -172,7 +172,7 @@ button {
 button:hover {
   color: #C73529;
   border-color: #C73529;
-  border-radius: 50px;
+  border-radius: 5rem;
   transition: all 0.3s ease 0s;
 }
 a {
@@ -195,6 +195,11 @@ a:hover {
 .viewLinks a {
   width: 35%;
   padding: 2rem;
+}
+hr.solid {
+  width: 75%;
+  margin: 2rem;
+  border-top: 3px solid #37312C;
 }
 .App {
   max-width: 1000px;
@@ -323,7 +328,18 @@ form .error {
   padding: 0.75rem;
 }
 .editList .gift:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #C73529;
+  border-radius: 5rem;
+  transition: all 0.3s ease 0s;
+}
+.editList .gift:hover h3 {
+  color: #F7F7F9;
+}
+.editList .gift:hover p {
+  color: #F7F7F9;
+}
+.editList .gift:hover a {
+  color: #37312C;
 }
 .indexList {
   display: flex;
@@ -337,7 +353,7 @@ form .error {
   background-color: #AFA2A5;
   margin: 2rem;
   padding: 1rem;
-  width: 40%;
+  width: 45%;
   height: 25rem;
   border: 0.3rem solid #701916;
   border-radius: 1rem;
@@ -346,6 +362,7 @@ form .error {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  transition: all 0.3s ease 0s;
 }
 .gift h3 {
   text-align: center;
@@ -363,7 +380,7 @@ form .error {
 }
 .gift .purchased {
   font-size: 2rem;
-  color: red;
+  color: #C73529;
   padding-top: 1rem;
 }
 @media (max-width:500px) {
