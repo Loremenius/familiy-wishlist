@@ -52,8 +52,10 @@ const AddGift = ({ user_id, history, addGift, match }) =>{
                         onChange={onChange}
                     />
                 </label>
-                <button onClick={onSubmit}>Add Gift</button>
-                <button onClick={onCancel}>Cancel</button>
+                <div className="buttons">
+                    <button onClick={onSubmit}>Add Gift</button>
+                    <button onClick={onCancel}>Cancel</button>
+                </div>
             </form>
         </div>
     )

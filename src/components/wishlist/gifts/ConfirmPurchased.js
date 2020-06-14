@@ -19,18 +19,21 @@ const ConfirmPurchased = ({ match, history, gifts, confirmPurchased }) =>{
     return (
         <div className = "confirmPurchase">
             <p>Are you sure you want to mark <strong>{giftName}</strong> as purchased? There is no reversing this action.</p>
-            
-            <button 
-                onClick={ confirm }
-            >
-                Mark as purchased
-            </button>
+            <div className='buttons'>
 
-            <button 
-                onClick={ ()=> history.push(`/wishlist/${match.params.family}/${match.params.id}`) }
-            >
-                Cancel
-            </button>
+                <button 
+                    onClick={ confirm }
+                >
+                    Mark as purchased
+                </button>
+
+                <button 
+                    onClick={ ()=> history.push(`/wishlist/${match.params.family}/${match.params.id}`) }
+                >
+                    Cancel
+                </button>
+                
+            </div>
         </div>
     )
 }
