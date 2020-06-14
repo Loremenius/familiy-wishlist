@@ -258,6 +258,14 @@ form .error {
   color: red;
   margin: 2rem;
 }
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 60%;
+}
 .login {
   display: flex;
   flex-direction: column;
