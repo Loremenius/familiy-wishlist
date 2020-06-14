@@ -24,7 +24,8 @@ const AddGift = ({ user_id, history, addGift, match }) =>{
     }
 
     return(
-        <div className="form">
+        <div className="editForm">
+            <h2>Adding Gift</h2>
             <form>
                 <label>
                     <p>Gift name (required)</p>
@@ -37,7 +38,7 @@ const AddGift = ({ user_id, history, addGift, match }) =>{
                 </label>
                 <label>
                     <p>Gift description (optional)</p>
-                    <input 
+                    <textarea 
                         type="text" 
                         value = {gift.description} 
                         name="description" 
@@ -46,7 +47,7 @@ const AddGift = ({ user_id, history, addGift, match }) =>{
                 </label>
                 <label>
                     <p>Gift URL/Link (optional)</p>
-                    <input type="text" 
+                    <textarea type="text" 
                         value = {gift.gift_url} 
                         name="gift_url" 
                         onChange={onChange}

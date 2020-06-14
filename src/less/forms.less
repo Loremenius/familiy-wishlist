@@ -4,7 +4,7 @@ form {
     
     label {
         width:100%;
-        .displayFlex();
+        .displayFlex(row, flex-start, center);
         p {
             width:17rem;
             padding:1rem;
@@ -16,7 +16,20 @@ form {
         font-size: 1.75rem;
         align-self: center;
         border-radius: 1rem;
+        padding:1rem;
     }
+    textarea {
+        width: 60%;
+        height: 150px;
+        padding: 1rem 2rem;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        resize: none;
+        margin:2rem 0rem;
+      }
 
     .error {
         font-size: 2rem;
@@ -28,4 +41,26 @@ form {
 .buttons { 
     .displayFlex(row, space-around, center); 
     width:60%;
+}
+
+.confirmPurchase { 
+    margin-top:2rem;
+    h2 { 
+        margin-bottom:1rem;
+    }
+    .displayFlex(column, center, center); 
+    width:100%;
+    padding:1rem;
+    p { 
+        padding-bottom: 1rem;
+    }
+}
+
+.editForm { 
+    margin-top: 2rem;
+   .displayFlex(column, flex-start, center);
+   width:100%;
+   form { 
+       width:80%;
+   }
 }

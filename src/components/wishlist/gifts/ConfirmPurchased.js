@@ -18,7 +18,9 @@ const ConfirmPurchased = ({ match, history, gifts, confirmPurchased }) =>{
 
     return (
         <div className = "confirmPurchase">
-            <p>Are you sure you want to mark <strong>{giftName}</strong> as purchased? There is no reversing this action.</p>
+            <h2>Mark as Purchased</h2>
+            <p>Are you sure you want to mark <strong>{giftName}</strong> as purchased?</p>
+            <p>There is no reversing this action.</p>
             <div className='buttons'>
 
                 <button 
@@ -32,7 +34,7 @@ const ConfirmPurchased = ({ match, history, gifts, confirmPurchased }) =>{
                 >
                     Cancel
                 </button>
-                
+
             </div>
         </div>
     )

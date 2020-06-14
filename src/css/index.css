@@ -240,7 +240,7 @@ form label {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: nowrap;
 }
 form label p {
@@ -252,6 +252,19 @@ form input {
   font-size: 1.75rem;
   align-self: center;
   border-radius: 1rem;
+  padding: 1rem;
+}
+form textarea {
+  width: 60%;
+  height: 150px;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+  margin: 2rem 0rem;
 }
 form .error {
   font-size: 2rem;
@@ -265,6 +278,34 @@ form .error {
   align-items: center;
   flex-wrap: nowrap;
   width: 60%;
+}
+.confirmPurchase {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 1rem;
+}
+.confirmPurchase h2 {
+  margin-bottom: 1rem;
+}
+.confirmPurchase p {
+  padding-bottom: 1rem;
+}
+.editForm {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.editForm form {
+  width: 80%;
 }
 .login {
   display: flex;
@@ -436,5 +477,29 @@ form .error {
   }
   .gift p {
     text-align: center;
+  }
+  .buttons {
+    width: 95%;
+  }
+  .confirmPurchase {
+    text-align: center;
+  }
+  .editForm label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .editForm input {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .editForm p {
+    width: 100%;
+  }
+  .editForm textarea {
+    width: 100%;
   }
 }

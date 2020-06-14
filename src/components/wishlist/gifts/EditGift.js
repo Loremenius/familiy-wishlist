@@ -50,9 +50,10 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
     },[]);
 
     return(
-        <div className="form">
+        <div className="editForm">
+            <h2>Editing Gift</h2>
             <form>
-            <label>
+                <label>
                     <p>Gift name (required)</p>
                     <input 
                         type="text" 
@@ -63,7 +64,7 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
                 </label>
                 <label>
                     <p>Gift description (optional)</p>
-                    <input 
+                    <textarea 
                         type="text" 
                         value = {gift.description} 
                         name="description" 
@@ -72,7 +73,7 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
                 </label>
                 <label>
                     <p>Gift URL/Link (optional)</p>
-                    <input type="text" 
+                    <textarea type="text" 
                         value = {gift.gift_url} 
                         name="gift_url" 
                         onChange={onChange}
