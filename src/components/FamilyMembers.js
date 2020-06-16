@@ -1,8 +1,13 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { clearGifts } from "../redux/actions/WishlistActions";
 
-const FamilyMembers = ({families, match}) =>{
+const FamilyMembers = ({ families, match, clearGifts }) =>{
+
+    useEffect(()=>{
+        clearGifts();
+    },[])
 
     return(
         <div className="familyMembers">
@@ -27,4 +32,4 @@ function mapStateToProps(state) {
     };
   }
 
-export default connect(mapStateToProps, { })(FamilyMembers);
+export default connect(mapStateToProps, { clearGifts })(FamilyMembers);
