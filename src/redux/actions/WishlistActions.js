@@ -2,6 +2,8 @@ import axios from 'axios';
 
 import { axiosWithAuth } from '../../components/axiosWithAuth';
 
+import { logoutClear } from "./LoginRegisterActions";
+
 export const GET_FAMILIES = "GET_FAMILIES";
 
 export const GET_LIST_SUCCESS = 'GET_LIST_SUCCESS';
@@ -36,6 +38,7 @@ export function getFamilies(history){
             })
             .catch(error=>{
                 if(error.response.status === 401){
+                    dispatch(logoutClear());
                     history.push('/login');
                 }
                 console.log(error);
@@ -52,6 +55,7 @@ export function getList(id, history){
             })
             .catch(error=>{
                 if(error.response.status === 401){
+                    dispatch(logoutClear());
                     history.push('/login');
                 }
                 console.log(error);
@@ -67,6 +71,7 @@ export function editGift(user_id, gift_id, gift, family, history){
             })
             .catch(error=>{
                 if(error.response.status === 401){
+                    dispatch(logoutClear());
                     history.push('/login');
                 }
                 console.log(error);
@@ -82,6 +87,7 @@ export function removeGift(user_id, gift_id, family, history){
             })
             .catch(error=>{
                 if(error.response.status === 401){
+                    dispatch(logoutClear());
                     history.push('/login');
                 }
                 console.log(error);
@@ -97,6 +103,7 @@ export function confirmPurchased(user_id, gift_id, family, history){
             })
             .catch(error=>{
                 if(error.response.status === 401){
+                    dispatch(logoutClear());
                     history.push('/login');
                 }
                 console.log(error);
@@ -112,6 +119,7 @@ export function addGift(user_id, gift, family, history){
             })
             .catch(error=>{
                 if(error.response.status === 401){
+                    dispatch(logoutClear());
                     history.push('/login');
                 }
                 console.log(error);

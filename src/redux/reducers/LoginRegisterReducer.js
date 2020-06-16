@@ -35,15 +35,10 @@ export const reducer = (state = initialState, action) => {
             }
         case LOGOUT_USER:
             return {
-                user:{
-                    id: null,
-                    token: "",
-                    message:"",
-                    LinkedAccount:false
-                },
+                user:{},
                 error:null,
                 isFetching:false,
-                navState: ""
+                showNavbar: false
             }
         case REGISTER_USER_LOADING:
             return {

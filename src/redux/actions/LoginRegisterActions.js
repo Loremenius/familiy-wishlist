@@ -12,7 +12,7 @@ export const SET_ERROR = '';
 
 export const LOGOUT_USER = "LOGOUT_USER";
 
-export const logoutClearLogin = () => ({ type: LOGOUT_USER });
+export const logoutClear = () => ({ type: LOGOUT_USER });
 
 export const loginUserLoading = () => ({ type: LOGIN_USER_LOADING });
 export const loginUserSuccess = data => ({
@@ -55,8 +55,7 @@ export function loginUser(user,history){
 export function logoutUser(){
     return function(dispatch) {
         sessionStorage.clear();
-        localStorage.clear()
-        dispatch(logoutClearLogin());
+        dispatch(logoutClear());
 
     }
 }
