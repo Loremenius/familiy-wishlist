@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { editGift, removeGift } from "../../../redux/actions/WishlistActions";
+import { setError } from "../../../redux/actions/LoginRegisterActions";
 import { axiosWithAuth } from "../../axiosWithAuth";
 
-const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
+const EditGift = ({ match, user_id, history, editGift, removeGift, error, setError }) =>{
     const [gift, setGift] = useState({name:'', description:'', gift_url:''});
     function onChange(e){
         e.preventDefault();
@@ -15,7 +16,23 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
 
     function onSubmit(e){
         e.preventDefault();
-        editGift(user_id, match.params.gift_id, gift, match.params.family, history);
+        // set error to empty string
+        setError('');
+        // check to make sure all fields are filled out
+        if(!!gift.name){
+                // call action to send data to back-end.
+                editGift(user_id, match.params.gift_id, gift, match.params.family, history);
+        // if not all fields are filled out. change error to display it. 
+        }else{
+            setError('Gift name is required.');
+        }
+    }
+
+    const displayError = () =>{
+        // if the error is not an empty string: create a paragraph to disaply it.
+        if(!!error) return (<p className='error'>{error}</p>)
+        // if error is a empty string: create empty paragraph.
+        else return (<p></p>)
     }
 
     function onClickRemove(e){
@@ -31,6 +48,8 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
 
     useEffect(()=>{
 
+        setError('');
+
         axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/list/${match.params.gift_id}`)
             .then(res=>{
 
@@ -44,10 +63,6 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
                 });
             })
             .catch(error=>{
-                if(error.response.status === 401){
-                    dispatch(logoutClear());
-                    history.push('/login');
-                }
                 console.log(error);
             });
 
@@ -83,6 +98,9 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
                         onChange={onChange}
                     />
                 </label>
+
+                {displayError()}
+
                 <div className="buttons">
                     <button onClick={onSubmit}>Update Gift</button>
                     <button onClick={onClickRemove}>Remove Gift</button>
@@ -95,8 +113,9 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
 
 function mapStateToProps(state) {
     return {
-        user_id:state.loginReducer.user.user_id
+        user_id:state.loginReducer.user.user_id,
+        error: state.loginReducer.error
     };
   }
 
-export default connect(mapStateToProps, { editGift, removeGift })(EditGift);
+export default connect(mapStateToProps, { editGift, removeGift, setError })(EditGift);
