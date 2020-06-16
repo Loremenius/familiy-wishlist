@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { addGift } from "../../../redux/actions/WishlistActions";
+import { setError } from "../../../redux/actions/LoginRegisterActions";
 
-const AddGift = ({ user_id, history, addGift, match }) =>{
+const AddGift = ({ user_id, history, addGift, match, setError, error }) =>{
     const [gift, setGift] = useState({ name: '', description: '', gift_url: '', user_id: user_id });
     function onChange(e){
         e.preventDefault();
@@ -12,9 +13,29 @@ const AddGift = ({ user_id, history, addGift, match }) =>{
         })
     }
 
+    useEffect(()=>{
+        setError('');
+    },[]);
+
     function onSubmit(e){
         e.preventDefault();
-        addGift(user_id, gift, match.params.family, history);
+        // set error to empty string
+        setError('');
+        // check to make sure all fields are filled out
+        if(!!gift.name){
+                // call action to send data to back-end.
+                addGift(user_id, gift, match.params.family, history);
+        // if not all fields are filled out. change error to display it. 
+        }else{
+            setError('Gift name is required.');
+        }
+    }
+
+    const displayError = () =>{
+        // if the error is not an empty string: create a paragraph to disaply it.
+        if(!!error) return (<p className='error'>{error}</p>)
+        // if error is a empty string: create empty paragraph.
+        else return (<p></p>)
     }
 
     function onCancel(e){
@@ -53,6 +74,9 @@ const AddGift = ({ user_id, history, addGift, match }) =>{
                         onChange={onChange}
                     />
                 </label>
+
+                {displayError()}
+
                 <div className="buttons">
                     <button onClick={onSubmit}>Add Gift</button>
                     <button onClick={onCancel}>Cancel</button>
@@ -64,8 +88,9 @@ const AddGift = ({ user_id, history, addGift, match }) =>{
 
 function mapStateToProps(state) {
     return {
-        user_id:state.loginReducer.user.user_id
+        user_id:state.loginReducer.user.user_id,
+        error: state.loginReducer.error
     };
   }
 
-export default connect(mapStateToProps, { addGift })(AddGift);
+export default connect(mapStateToProps, { addGift, setError })(AddGift);
