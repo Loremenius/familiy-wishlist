@@ -28,19 +28,22 @@ export const clearGifts = () => ({
 });
 
 
-export function getFamilies(){
+export function getFamilies(history){
     return function(dispatch) {
         return axios.get('http://localhost:4000/api/user/families')
             .then(response=>{
                 dispatch(getFamiliesSuccess(response.data));
             })
             .catch(error=>{
+                if(error.response.status === 401){
+                    history.push('/login');
+                }
                 console.log(error);
             })
     }
 }
 
-export function getList(id){
+export function getList(id, history){
     return function(dispatch) {
         dispatch(getListLoading());
         return axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/${id}/list`)
@@ -48,6 +51,9 @@ export function getList(id){
                 dispatch(getListSuccess(response.data));
             })
             .catch(error=>{
+                if(error.response.status === 401){
+                    history.push('/login');
+                }
                 console.log(error);
             })
     }
@@ -60,6 +66,9 @@ export function editGift(user_id, gift_id, gift, family, history){
                 history.push(`/wishlist/${family}/${user_id}`);
             })
             .catch(error=>{
+                if(error.response.status === 401){
+                    history.push('/login');
+                }
                 console.log(error);
             })
     }
@@ -72,6 +81,9 @@ export function removeGift(user_id, gift_id, family, history){
                 history.push(`/wishlist/${family}/${user_id}`);
             })
             .catch(error=>{
+                if(error.response.status === 401){
+                    history.push('/login');
+                }
                 console.log(error);
             })
     }
@@ -84,6 +96,9 @@ export function confirmPurchased(user_id, gift_id, family, history){
                 history.push(`/wishlist/${family}/${user_id}`);
             })
             .catch(error=>{
+                if(error.response.status === 401){
+                    history.push('/login');
+                }
                 console.log(error);
             })
     }
@@ -96,6 +111,9 @@ export function addGift(user_id, gift, family, history){
                 history.push(`/wishlist/${family}/${user_id}`);
             })
             .catch(error=>{
+                if(error.response.status === 401){
+                    history.push('/login');
+                }
                 console.log(error);
             })
     }

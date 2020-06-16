@@ -3,9 +3,9 @@ import { Link } from "react-router-dom"
 import { connect } from "react-redux";
 import { getFamilies } from '../redux/actions/WishlistActions';
 
-const Home = ({families, user, getFamilies}) =>{
+const Home = ({families, user, getFamilies, history}) =>{
     useEffect(()=>{
-        getFamilies();
+        getFamilies(history);
     },[]);
 
     return(

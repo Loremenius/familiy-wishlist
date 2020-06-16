@@ -11,7 +11,7 @@ const Wishlist = ({gifts, getList, match, user_id, history, families}) =>{
         else return <ViewList gifts = {gifts} history = {history} match = {match}/> 
     }
     useEffect(()=>{
-        getList(match.params.id);
+        getList(match.params.id, history);
     },[match.params.id]);
 
     return(
