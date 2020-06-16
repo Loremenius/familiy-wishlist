@@ -29,7 +29,7 @@ const AddGift = ({ user_id, history, addGift, match }) =>{
             <form>
                 <label>
                     <p>Gift name (required)</p>
-                    <input 
+                    <textarea 
                         type="text" 
                         value = {gift.name} 
                         name="name" 

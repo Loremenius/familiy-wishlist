@@ -265,6 +265,7 @@ form textarea {
   font-size: 16px;
   resize: none;
   margin: 2rem 0rem;
+  font-family: "Times New Roman", Times, serif;
 }
 form .error {
   font-size: 2rem;
@@ -318,6 +319,12 @@ form .error {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.login a {
+  color: #701916;
+}
+.login button {
+  margin: 1rem 0rem;
+}
 .register {
   display: flex;
   flex-direction: column;
@@ -333,7 +340,11 @@ form .error {
   font-size: 1.5rem;
 }
 .register button {
+  margin: 1rem 0rem;
   width: 20rem;
+}
+.register a {
+  color: #701916;
 }
 .home {
   margin: 2rem;
@@ -342,6 +353,9 @@ form .error {
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+}
+.home a {
+  color: #701916;
 }
 .familyMembers {
   margin: 2rem;

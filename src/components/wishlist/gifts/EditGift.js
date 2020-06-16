@@ -55,7 +55,7 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
             <form>
                 <label>
                     <p>Gift name (required)</p>
-                    <input 
+                    <textarea 
                         type="text" 
                         value = {gift.name} 
                         name="name" 
