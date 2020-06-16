@@ -44,6 +44,10 @@ const EditGift = ({ match, user_id, history, editGift, removeGift }) =>{
                 });
             })
             .catch(error=>{
+                if(error.response.status === 401){
+                    dispatch(logoutClear());
+                    history.push('/login');
+                }
                 console.log(error);
             });
 
