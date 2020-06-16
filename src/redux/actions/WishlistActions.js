@@ -6,6 +6,7 @@ export const GET_FAMILIES = "GET_FAMILIES";
 
 export const GET_LIST_SUCCESS = 'GET_LIST_SUCCESS';
 export const GET_LIST_LOADING = 'GET_LIST_LOADING';
+export const CLEAR_GIFTS = 'CLEAR_GIFTS';
 
 export const getFamiliesSuccess = data => ({
     type: GET_FAMILIES,
@@ -21,6 +22,10 @@ export const getListSuccess = data => ({
 export const getListLoading = () => ({
     type: GET_LIST_LOADING
   });
+
+export const clearGifts = () => ({
+    type: CLEAR_GIFTS
+});
 
 
 export function getFamilies(){
