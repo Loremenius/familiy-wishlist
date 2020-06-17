@@ -1,16 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 
-const Landing = () =>{
+const Landing = ({ history }) =>{
 
     return(
-        <div>
+        <div className="landing">
 
             <h1>Welcome to the Family Wishlist</h1>
-            <div className = "button">
-                <Link to="/login"> Login </Link>
-                <Link to="/register"> Register a New User </Link>
+            <div className = "buttons">
+                <button onClick={()=>history.push('/login')}> Login </button>
+                <button onClick={()=>history.push('/register')}> Register </button>
             </div>
 
         </div>

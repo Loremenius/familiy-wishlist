@@ -357,6 +357,24 @@ form .error {
 .home a {
   color: #701916;
 }
+.landing {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.landing a {
+  color: #701916;
+}
+.landing h1 {
+  padding-bottom: 3rem;
+}
 .familyMembers {
   margin: 2rem;
   display: flex;
@@ -452,6 +470,9 @@ form .error {
 @media (max-width:500px) {
   .App {
     max-width: 100%;
+  }
+  .landing {
+    width: 100%;
   }
   .viewLinks {
     display: flex;
