@@ -269,7 +269,7 @@ form textarea {
 }
 form .error {
   font-size: 2rem;
-  color: red;
+  color: #C73529;
   margin: 2rem;
 }
 .buttons {

@@ -14,12 +14,13 @@ const Login = ({ loginUser, history, error, setError }) =>{
 
     const onSubmit = (e) =>{
         e.preventDefault();
+        const changedUser = { username: user.username.trim(), password: user.password.trim() }
         // set error to empty string
         setError('');
         // check to make sure all fields are filled out
         if(!!user.username && !!user.password){
                 // call action to send data to back-end.
-                loginUser(user, history);
+                loginUser(changedUser, history);
         // if not all fields are filled out. change error to display it. 
         }else{
             setError('All fields are required');
