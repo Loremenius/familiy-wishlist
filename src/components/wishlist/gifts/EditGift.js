@@ -50,7 +50,7 @@ const EditGift = ({ match, user_id, history, editGift, removeGift, error, setErr
 
         setError('');
 
-        axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/list/${match.params.gift_id}`)
+        axiosWithAuth().get(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/list/${match.params.gift_id}`)
             .then(res=>{
 
                 if(res.data.user_id !== user_id){

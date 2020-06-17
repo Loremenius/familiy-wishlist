@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 import { reducer as loginReducer } from './redux/reducers/LoginRegisterReducer';
 import { reducer as wishlistReducer } from './redux/reducers/WishlistReducer'
 
-const store = createStore(combineReducers({loginReducer,wishlistReducer}), applyMiddleware(thunk, logger));
+const store = createStore(combineReducers({loginReducer,wishlistReducer}), applyMiddleware(thunk));
 
 ReactDOM.render(
 <Provider store = {store}>

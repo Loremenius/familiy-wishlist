@@ -39,7 +39,7 @@ export const setReduxError = error => ({
 export function loginUser(user,history){
     return function(dispatch) {
         dispatch(loginUserLoading());
-        return axios.post('http://localhost:4000/api/user/login',user)
+        return axios.post('https://family-wishlist-db.herokuapp.com/api/user/login',user)
             .then(response=>{
                 dispatch(loginUserSuccess(response.data));
                 sessionStorage.setItem("token",response.data.token);
@@ -63,7 +63,7 @@ export function logoutUser(){
 export function registerUser(user, history){
     return function(dispatch) {
         dispatch(registerUserLoading());
-        return axios.post('http://localhost:4000/api/user/register',user)
+        return axios.post('https://family-wishlist-db.herokuapp.com/api/user/register',user)
             .then(()=>{
                 dispatch(registerUserSuccess());
                 history.push('/login')

@@ -32,7 +32,7 @@ export const clearGifts = () => ({
 
 export function getFamilies(history){
     return function(dispatch) {
-        return axios.get('http://localhost:4000/api/user/families')
+        return axios.get('https://family-wishlist-db.herokuapp.com/api/user/families')
             .then(response=>{
                 dispatch(getFamiliesSuccess(response.data));
             })
@@ -49,7 +49,7 @@ export function getFamilies(history){
 export function getList(id, history){
     return function(dispatch) {
         dispatch(getListLoading());
-        return axiosWithAuth().get(`http://localhost:4000/api/user/wishlist/${id}/list`)
+        return axiosWithAuth().get(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${id}/list`)
             .then(response=>{
                 dispatch(getListSuccess(response.data));
             })
@@ -65,7 +65,7 @@ export function getList(id, history){
 
 export function editGift(user_id, gift_id, gift, family, history){
     return function(dispatch){
-        return axiosWithAuth().put(`http://localhost:4000/api/user/wishlist/${user_id}/list/${gift_id}`, gift)
+        return axiosWithAuth().put(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${user_id}/list/${gift_id}`, gift)
             .then(data=>{
                 history.push(`/wishlist/${family}/${user_id}`);
             })
@@ -81,7 +81,7 @@ export function editGift(user_id, gift_id, gift, family, history){
 
 export function removeGift(user_id, gift_id, family, history){
     return function(dispatch){
-        return axiosWithAuth().delete(`http://localhost:4000/api/user/wishlist/${user_id}/list/${gift_id}`)
+        return axiosWithAuth().delete(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${user_id}/list/${gift_id}`)
             .then(data=>{
                 history.push(`/wishlist/${family}/${user_id}`);
             })
@@ -97,7 +97,7 @@ export function removeGift(user_id, gift_id, family, history){
 
 export function confirmPurchased(user_id, gift_id, family, history){
     return function(dispatch){
-        return axiosWithAuth().put(`http://localhost:4000/api/user/wishlist/${user_id}/list/${gift_id}/purchased`)
+        return axiosWithAuth().put(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${user_id}/list/${gift_id}/purchased`)
             .then(data=>{
                 history.push(`/wishlist/${family}/${user_id}`);
             })
@@ -113,7 +113,7 @@ export function confirmPurchased(user_id, gift_id, family, history){
 
 export function addGift(user_id, gift, family, history){
     return function(dispatch){
-        return axiosWithAuth().post(`http://localhost:4000/api/user/wishlist/${user_id}/list`, gift)
+        return axiosWithAuth().post(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${user_id}/list`, gift)
             .then(data=>{
                 history.push(`/wishlist/${family}/${user_id}`);
             })
