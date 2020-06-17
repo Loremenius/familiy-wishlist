@@ -262,7 +262,7 @@ form textarea {
   border: 2px solid #ccc;
   border-radius: 4px;
   background-color: #f8f8f8;
-  font-size: 16px;
+  font-size: 2rem;
   resize: none;
   margin: 2rem 0rem;
   font-family: "Times New Roman", Times, serif;
@@ -450,6 +450,74 @@ form .error {
   padding-top: 1rem;
 }
 @media (max-width:500px) {
+  .App {
+    max-width: 100%;
+  }
+  .viewLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .viewLinks a {
+    width: 100%;
+  }
+  .familyMembers {
+    text-align: center;
+  }
+  .home {
+    text-align: center;
+  }
+  .login {
+    width: 100%;
+  }
+  .register {
+    width: 100%;
+  }
+  nav {
+    padding: 1rem;
+  }
+  nav a {
+    padding: 0.5rem;
+  }
+  .gift {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .gift p {
+    text-align: center;
+  }
+  .buttons {
+    width: 95%;
+  }
+  .confirmPurchase {
+    text-align: center;
+  }
+  .editForm label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .editForm input {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .editForm p {
+    width: 100%;
+  }
+  .editForm textarea {
+    width: 100%;
+  }
+}
+@media (max-width:700px) {
   .App {
     max-width: 100%;
   }
