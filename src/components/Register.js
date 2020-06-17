@@ -32,6 +32,13 @@ const Login = ({ registerUser, history, error, setError }) =>{
     }
 
     const onSubmit = (e) =>{
+        const changedUser = {
+            username: user.username.trim(),
+            password: user.password.trim(),
+            firstname: user.firstname.trim(),
+            lastname: user.lastname.trim()
+        };
+
         e.preventDefault();
         // set error to empty string
         setError('');
@@ -42,9 +49,9 @@ const Login = ({ registerUser, history, error, setError }) =>{
                 // if password is correct. call action to send data to back-end.
 
                 // send firstname and last name to fixNameCasing function to convert them to correct casing. (Returns object)
-                const name = fixNameCasing(user.firstname, user.lastname);
+                const name = fixNameCasing(changedUser.firstname, changedUser.lastname);
                 // create new object merging user and name together
-                const data = { ...user, ...name }
+                const data = { ...changedUser, ...name }
                 // call action to send data to back-end.
                 registerUser(data, history);
             
