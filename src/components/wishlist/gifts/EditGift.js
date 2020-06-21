@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { editGift, removeGift } from "../../../redux/actions/WishlistActions";
 import { setError } from "../../../redux/actions/LoginRegisterActions";
 import { axiosWithAuth } from "../../axiosWithAuth";
+import findGiftIndex from "../../../redux/reducers/functions/findGiftIndex";
 
-const EditGift = ({ match, user_id, history, editGift, removeGift, error, setError }) =>{
+const EditGift = ({ match, user_id, history, editGift, removeGift, error, setError, gifts }) =>{
     const [gift, setGift] = useState({name:'', description:'', gift_url:''});
     function onChange(e){
         e.preventDefault();
@@ -47,24 +48,16 @@ const EditGift = ({ match, user_id, history, editGift, removeGift, error, setErr
     }
 
     useEffect(()=>{
-
         setError('');
 
-        axiosWithAuth().get(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/list/${match.params.gift_id}`)
-            .then(res=>{
+        const giftIndex = findGiftIndex(gifts, match.params.gift_id);
 
-                if(res.data.user_id !== user_id){
-                    history.push('/home');
-                }
+        const found_gift = gifts[giftIndex];
 
-                setGift({
-                    ...gift,
-                    ...res.data
-                });
-            })
-            .catch(error=>{
-                console.log(error);
-            });
+        setGift({
+            ...gift,
+            ...found_gift
+        });
 
     },[]);
 
@@ -114,7 +107,8 @@ const EditGift = ({ match, user_id, history, editGift, removeGift, error, setErr
 function mapStateToProps(state) {
     return {
         user_id:state.loginReducer.user.user_id,
-        error: state.loginReducer.error
+        error: state.loginReducer.error, 
+        gifts:state.wishlistReducer.gifts
     };
   }
 
