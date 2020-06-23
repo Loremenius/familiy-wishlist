@@ -3,6 +3,7 @@ import './css/index.css';
 import Routes from "./components/Routes";
 import NavBar from "./components/NavBar";
 import { connect } from "react-redux";
+import { Helmet } from "react-helmet";
 
 function App({ showNavbar }) {
   function displayNavbar(){
@@ -11,7 +12,12 @@ function App({ showNavbar }) {
   }
   return (
     <div className="App">
+      <Helmet>
+        <title>Family Wishlist</title>
+      </Helmet>
+
       {displayNavbar()}
+
       <Routes/>
     </div>
   );
