@@ -467,6 +467,17 @@ form .error {
   color: #C73529;
   padding-top: 1rem;
 }
+.loading {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.loading img {
+  width: 100px;
+}
 @media (max-width:500px) {
   .App {
     max-width: 100%;

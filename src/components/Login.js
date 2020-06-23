@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react"
 import { connect } from "react-redux";
 import { loginUser, setError } from '../redux/actions/LoginRegisterActions';
 import { Link } from "react-router-dom";
+import * as loadingImg from "../img/stichSnowman.gif";
 
-const Login = ({ loginUser, history, error, setError }) =>{
+const Login = ({ loginUser, history, error, setError, isFetching }) =>{
     const [user, setUser] = useState({username:"", password:""});
     const onChange = (e) =>{
         setUser({
@@ -25,6 +26,16 @@ const Login = ({ loginUser, history, error, setError }) =>{
         }else{
             setError('All fields are required');
         }
+    }
+
+    const loading = () =>{
+        if ( isFetching ) return ( 
+            <div className = 'loading'>
+                <img src={loadingImg}/> 
+                <p>Loading...</p>
+            </div>
+        )
+        else return ( <button> Login </button> )
     }
 
     const displayError = () =>{
@@ -61,8 +72,8 @@ const Login = ({ loginUser, history, error, setError }) =>{
                         onChange={onChange}
                     />
                 </label>
-                <button> Login </button>
-                {displayError()}
+                { loading() }
+                { displayError() }
             </form>
             <Link to='/register'>Register new user</Link>
         </div>
