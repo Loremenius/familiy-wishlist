@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 
 function App({ showNavbar }) {
   function displayNavbar(){
+    // pulls boolean from redux. if true, displays navbar. otherwise it will display nothing
     if (showNavbar) return (<NavBar/>)
     else return (<p></p>)
   }
