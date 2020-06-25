@@ -13,6 +13,7 @@ function App({ showNavbar }) {
   }
   return (
     <div className="App">
+      {/* adds Familiy Wishlist to Head of HTML */}
       <Helmet>
         <title>Family Wishlist</title>
       </Helmet>

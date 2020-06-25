@@ -6,9 +6,11 @@ import { clearGifts } from "../redux/actions/WishlistActions";
 const FamilyMembers = ({ families, match, clearGifts }) =>{
 
     useEffect(()=>{
+        // clears gifts array in wishlist reducer.
         clearGifts();
     },[])
 
+    // creates component to display a list of family members from a certain family. The family is retrieved from match.params.family
     return(
         <div className="familyMembers">
             <h2>The {match.params.family} Family</h2>
