@@ -13,6 +13,7 @@ import Register from './Register';
 
 const Routes = () =>{
 
+    // Component to hold all of the routes used on the website. Each route displays a different component of the site.
     return(
         <div className="Routes">
 
