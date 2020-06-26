@@ -3,6 +3,7 @@ import React from "react";
 
 const Landing = ({ history }) =>{
 
+    // This component is a basic landing page to the site. Buttons that lead to login or register.
     return(
         <div className="landing">
 

@@ -8,6 +8,7 @@ const Home = ({families, user, getFamilies, history}) =>{
         getFamilies(history);
     },[]);
 
+    // This component displays the links to families and user's wishlist.
     return(
         <div className="home">
             <h2>Welcome {user.firstname}</h2>

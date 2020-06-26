@@ -29,6 +29,7 @@ const Login = ({ loginUser, history, error, setError, isFetching }) =>{
     }
 
     const loading = () =>{
+        // if the site is fetching data from the database: display the loading gif. Otherwise: display the login button.
         if ( isFetching ) return ( 
             <div className = 'loading'>
                 <img src={loadingImg}/> 
@@ -49,6 +50,7 @@ const Login = ({ loginUser, history, error, setError, isFetching }) =>{
         setError('');
     },[]);
 
+    // This component creates the login form to allow users into the site.
     return (
 
         <div className = "login">
