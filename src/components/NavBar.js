@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 const NavBar = ({ families, user }) =>{
 
+    // This component displays all the links for families and the user's wishlist as a navbar at the top of the page. 
     return (
         <nav className = "navBar">
             <Link to={`/wishlist/${user.lastname}/${user.user_id}`}>Your Wishlist</Link>
