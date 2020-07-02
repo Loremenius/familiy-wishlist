@@ -22,7 +22,7 @@ const ViewList = ({ gifts, history, match }) =>{
         if (!!gift_url) return(<a href={gift_url} target="_blank" >View gift at original website</a>)
         else return (<p></p>)
     }
-
+    // creates a component to view gifts in view only mode.
     return(
         <div className='viewList'>
             <div className="wishlist">
