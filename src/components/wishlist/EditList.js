@@ -8,7 +8,7 @@ const EditList = ({ gifts, history, user_id, match }) =>{
         if (!!gift_url) return(<a>View gift at original website</a>)
         else return (<p></p>)
     }
-
+    // This component creates a version of the user's list that allows them to edit gifts when selecting them.
     return(
         <div className = 'editList'>
             <button className="add" onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/add`)}>Add gift to wishlist</button>
