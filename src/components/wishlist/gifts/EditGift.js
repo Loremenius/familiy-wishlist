@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { editGift, removeGift } from "../../../redux/actions/WishlistActions";
 import { setError } from "../../../redux/actions/LoginRegisterActions";
-import { axiosWithAuth } from "../../axiosWithAuth";
 import findGiftIndex from "../../../redux/reducers/functions/findGiftIndex";
 
 const EditGift = ({ match, user_id, history, editGift, removeGift, error, setError, gifts }) =>{
