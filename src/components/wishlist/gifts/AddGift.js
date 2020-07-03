@@ -43,7 +43,7 @@ const AddGift = ({ user_id, history, addGift, match, setError, error }) =>{
         setGift({ name:'', description:'', gift_url:'' });
         history.push(`/wishlist/${match.params.family}/${user_id}`)
     }
-
+    // Creates component to display form to create a gift.
     return(
         <div className="editForm">
             <h2>Adding Gift</h2>
