@@ -5,8 +5,10 @@ import  EditList  from './EditList';
 import ViewList from './ViewList';
 
 const Wishlist = ({gifts, getList, match, user_id, history, families}) =>{
+    // gets the user id from the parameters and pulls the user from the members array. 
     const user = families[match.params.family].members.find(user=> user.id === parseInt(match.params.id));
     const displayList = ()=>{
+        // if the the id used in the link is the id of the user: view gifts in edit mode. Otherwise view them in view mode. 
         if (parseInt(match.params.id) === user_id) return <EditList gifts = {gifts} history = {history} match = {match}/>
         else return <ViewList gifts = {gifts} history = {history} match = {match}/> 
     }
