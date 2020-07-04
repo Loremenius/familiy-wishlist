@@ -5,6 +5,7 @@ export const LOGIN_USER_LOADING = "LOGIN_USER_LOADING";
 export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
 export const LOGIN_USER_FAILED = "LOGIN_USER_FAILED";
 
+// declared reduc actions for registering a new user
 export const REGISTER_USER_LOADING = "REGISTER_USER_LOADING";
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";
 export const REGISTER_USER_FAILED = "REGISTER_USER_FAILED";
