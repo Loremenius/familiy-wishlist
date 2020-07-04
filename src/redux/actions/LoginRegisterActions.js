@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// declares redux actions for logging in user
 export const LOGIN_USER_LOADING = "LOGIN_USER_LOADING";
 export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
 export const LOGIN_USER_FAILED = "LOGIN_USER_FAILED";
