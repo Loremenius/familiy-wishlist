@@ -40,15 +40,20 @@ export const setReduxError = error => ({
 
 export function loginUser(user,history){
     return function(dispatch) {
+        // sets state isFetching to true.
         dispatch(loginUserLoading());
+        // sends user object to back end and will recieve a response. 
         return axios.post('https://family-wishlist-db.herokuapp.com/api/user/login',user)
             .then(response=>{
+                // sends data from response to redux to save data
                 dispatch(loginUserSuccess(response.data));
+                // adds token to session storage
                 sessionStorage.setItem("token",response.data.token);
+                // sends user to the home page.
                 history.push('/home')
             })
             .catch(error=>{
-                console.log(error);
+                // adds error to redux
                 dispatch(loginUserFailure( error.response.data.message)); 
             })
     }
