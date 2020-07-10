@@ -61,7 +61,9 @@ export function loginUser(user,history){
 
 export function logoutUser(){
     return function(dispatch) {
+        // clears user's session storage.
         sessionStorage.clear();
+        // clears the user's website redux storage.
         dispatch(logoutClear());
 
     }
@@ -69,14 +71,17 @@ export function logoutUser(){
 
 export function registerUser(user, history){
     return function(dispatch) {
+        // sets redux storage isFetching to true
         dispatch(registerUserLoading());
+        // calls back end and attempts to create a new user.
         return axios.post('https://family-wishlist-db.herokuapp.com/api/user/register',user)
             .then(()=>{
+                // sets redux storage isFetching to false.
                 dispatch(registerUserSuccess());
+                // sends user to login page.
                 history.push('/login')
             })
             .catch(error=>{
-                console.log(error);
                 dispatch(registerUserFailure( error.response.data.message)); 
             })
     }
