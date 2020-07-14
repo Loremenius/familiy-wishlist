@@ -86,9 +86,10 @@ export function registerUser(user, history){
             })
     }
 }
-
+// function that updates the error variable in redux.
 export function setError(error){
     return function(dispatch) {
+        // sends new error message to redux for updating.
         dispatch(setReduxError(error));
     }
 }
