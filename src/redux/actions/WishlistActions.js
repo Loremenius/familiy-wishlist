@@ -29,19 +29,21 @@ export const clearGifts = () => ({
     type: CLEAR_GIFTS
 });
 
-
+// this function retrieves all families (members of each family organized by family) from back end
 export function getFamilies(history){
+    // calls back end
     return function(dispatch) {
         return axios.get('https://family-wishlist-db.herokuapp.com/api/user/families')
             .then(response=>{
+                // save response to redux
                 dispatch(getFamiliesSuccess(response.data));
             })
             .catch(error=>{
+                // if the error code is 401: clear redux user and send them to login basically logging them out of app.
                 if(error.response.status === 401){
                     dispatch(logoutClear());
                     history.push('/login');
                 }
-                console.log(error);
             })
     }
 }
