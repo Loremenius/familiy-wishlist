@@ -47,20 +47,23 @@ export function getFamilies(history){
             })
     }
 }
-
+// this function gets the list of a user with a specific ID. 
 export function getList(id, history){
     return function(dispatch) {
+        // sets gifts array to empty and sets isFetching to true.
         dispatch(getListLoading());
+        // sends request to back end to retrieve gifts.
         return axiosWithAuth().get(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${id}/list`)
             .then(response=>{
+                // take data from response and set it to gifts array. 
                 dispatch(getListSuccess(response.data));
             })
             .catch(error=>{
+                // if the error code in response is 401: clear redux user and send them to login basically logging them out of app. 
                 if(error.response.status === 401){
                     dispatch(logoutClear());
                     history.push('/login');
                 }
-                console.log(error);
             })
     }
 }
