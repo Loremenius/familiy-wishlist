@@ -86,19 +86,22 @@ export function editGift(user_id, gift_id, gift, family, history){
             })
     }
 }
-
+// function to remove gift with a specific id
+// takes in user id , gift id, the family the user is part of, and history object.
 export function removeGift(user_id, gift_id, family, history){
     return function(dispatch){
+        //sends request to back end to delete gift.
         return axiosWithAuth().delete(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${user_id}/list/${gift_id}`)
             .then(data=>{
+                // sends user back to wishlist
                 history.push(`/wishlist/${family}/${user_id}`);
             })
             .catch(error=>{
+                // if the error code in response is 401: clear redux user and send them to login basically logging them out of app.
                 if(error.response.status === 401){
                     dispatch(logoutClear());
                     history.push('/login');
                 }
-                console.log(error);
             })
     }
 }
