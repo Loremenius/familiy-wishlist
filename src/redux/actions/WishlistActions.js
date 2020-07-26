@@ -124,19 +124,22 @@ export function confirmPurchased(user_id, gift_id, family, history){
             })
     }
 }
-
+// function to add a gift to the user's wishlist
+// takes in id of user, id of gift, the family the user is part of, and history object. 
 export function addGift(user_id, gift, family, history){
     return function(dispatch){
+        // sends request to add gift to database.
         return axiosWithAuth().post(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${user_id}/list`, gift)
             .then(data=>{
+                // sends user back to user's wishlist.
                 history.push(`/wishlist/${family}/${user_id}`);
             })
             .catch(error=>{
+                // if the error code in response is 401: clear redux user and send them to login basically logging them out of app.
                 if(error.response.status === 401){
                     dispatch(logoutClear());
                     history.push('/login');
                 }
-                console.log(error);
             })
     }
 }
