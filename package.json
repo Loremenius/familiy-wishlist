@@ -2,7 +2,7 @@
   "name": "family-wishlist",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://familygifts.name",  
+  "homepage": "http://ourfamilygifts.com",  
   "dependencies": {
     "axios": "^0.19.2",
     "react": "^16.10.2",
