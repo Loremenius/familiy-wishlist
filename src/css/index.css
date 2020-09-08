@@ -205,7 +205,7 @@ hr.solid {
   border-top: 3px solid #37312C;
 }
 .App {
-  max-width: 1000px;
+  max-width: 100rem;
   width: 100%;
   margin: 0 auto;
   align-items: center;
