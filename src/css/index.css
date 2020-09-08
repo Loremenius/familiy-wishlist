@@ -159,7 +159,7 @@ p {
   line-height: 1.4;
 }
 .container {
-  max-width: 800px;
+  max-width: 80rem;
   width: 100%;
   margin: 0 auto;
 }
@@ -167,8 +167,8 @@ button {
   color: #701916;
   font-size: 2rem;
   padding: 1rem;
-  border: 2px solid #701916;
-  border-radius: 6px;
+  border: 0.2rem solid #701916;
+  border-radius: 0.6rem;
   display: inline-block;
   transition: all 0.3s ease 0s;
 }
@@ -202,7 +202,7 @@ a:hover {
 hr.solid {
   width: 75%;
   margin: 2rem;
-  border-top: 3px solid #37312C;
+  border-top: 0.3rem solid #37312C;
 }
 .App {
   max-width: 100rem;
