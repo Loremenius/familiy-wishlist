@@ -1,5 +1,4 @@
-import React, { useEffect } from "react"
-import { Link } from "react-router-dom"
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getFamilies } from '../redux/actions/WishlistActions';
 
@@ -26,7 +25,7 @@ const Home = ({families, user, getFamilies, history}) =>{
                     > 
                     View {family} family 
                     </button>
-                    
+
                 ))}
             </div>
         </div>
