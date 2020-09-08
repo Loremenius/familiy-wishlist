@@ -13,9 +13,20 @@ const Home = ({families, user, getFamilies, history}) =>{
         <div className="home">
             <h2>Welcome {user.firstname}</h2>
             <div className= "viewLinks">
-                <Link to={`/wishlist/${user.lastname}/${user.user_id}`}>View your wishlist</Link>
+                <button 
+                    onClick={()=>history.push(`/wishlist/${user.lastname}/${user.user_id}`)}
+                > 
+                    View your wishlist 
+                </button>
                 {Object.keys(families).map((family)=>(
-                    <Link to={`/wishlist/${family}`} key={family}>View {family} family</Link>
+    
+                    <button 
+                    onClick={()=>history.push(`/wishlist/${family}`)}
+                    key={family}
+                    > 
+                    View {family} family 
+                    </button>
+                    
                 ))}
             </div>
         </div>
