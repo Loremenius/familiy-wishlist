@@ -195,9 +195,10 @@ a:hover {
   align-items: stretch;
   flex-wrap: wrap;
 }
-.viewLinks a {
+.viewLinks button {
   width: 35%;
   padding: 2rem;
+  margin-bottom: 1rem;
 }
 hr.solid {
   width: 75%;
@@ -492,7 +493,7 @@ form .error {
     align-items: center;
     flex-wrap: nowrap;
   }
-  .viewLinks a {
+  .viewLinks button {
     width: 100%;
   }
   .familyMembers {
