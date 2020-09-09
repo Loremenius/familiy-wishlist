@@ -7,10 +7,17 @@ const NavBar = ({ families, user }) =>{
     // This component displays all the links for families and the user's wishlist as a navbar at the top of the page. 
     return (
         <nav className = "navBar">
-            <Link to={`/wishlist/${user.lastname}/${user.user_id}`}>Your Wishlist</Link>
-            {Object.keys(families).map((family)=>(
-                 <Link to={`/wishlist/${family}`} key={family}> {family} </Link>
-            ))}
+          <ul>
+            <li><Link to={`/wishlist/${user.lastname}/${user.user_id}`}>Your Wishlist</Link></li>
+            <li>
+              <Link to="/home">Families</Link>
+              <ul>
+                {Object.keys(families).map((family)=>(
+                  <Link to={`/wishlist/${family}`} key={family}> {family} </Link>
+                ))}
+              </ul>
+            </li>
+          </ul>
         </nav>
     )
 }
