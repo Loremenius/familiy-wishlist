@@ -1,15 +1,11 @@
 
   
   nav {
-    position: fixed;
-    top: 15px;
-    left: 50%;
-    width:75%;
-    transform: translateX(-50%);
-    display: inline-block;
-    border: 2px solid #EBECF1;
-    border-radius: 30px;
-    animation: slide-in 1s ease-out;
+    margin:1rem 0;
+    width:100%;
+    border: 2px solid @light-brown;
+    background-color: @snow-grey;
+    border-radius: 3rem;
   }
   
   ul {
@@ -17,10 +13,10 @@
     display: flex;
     flex: 1 1 auto;
     margin: 0;
-    padding: 0 30px;
+    padding: 0 3rem;
     list-style-type: none;
     li:not(:last-child) {
-      margin-right: 40px;
+      margin-right: 4rem;
     }
     li {
       border: 2px solid transparent;
@@ -28,67 +24,41 @@
       padding: 10px;
       transition: background 0.2s;
       a {
-        color: #2375D8;
+        color: @dark-brown;
         text-decoration: none;
-        text-transform: uppercase;
         transition: color 0.2s;
       }
-      ul {
-        visibility: hidden;
-        opacity: 0;
-        position: absolute;
-        .displayFlex(column);
-        margin: 12px -12px;
-        width:17rem;
-        padding: 0;
-        background: #FFA91B;
-        border: 2px solid #F7C833;
-        border-right: 2px solid #F89329;
-        border-bottom: 2px solid #F89329;
-        border-radius: 5px;
-        transition: opacity 0.2s, visibility 0.2s;
-        li {
-          margin: -2px 0 0 -2px;
-          width: calc(100% - 20px);
-          line-height: 1.7;
-          a {
-            color: #2375D8;
-          }
-        }
-      }
       &:hover {
-        background: #EC4138;
-        border: 2px solid #F05749;
-        border-right: 2px solid #E02A21;
-        border-bottom: 2px solid #E02A21;
+        background: @dark-red;
+        border: 2px solid @dark-red;
+        border-right: 2px solid @dark-red;
+        border-bottom: 2px solid @dark-red;
         a {
           color: #F9F8FD;
         }
-        ul {
+        .famNav {
           visibility: visible;
           opacity: 1;
-          box-shadow: 0px 3px 5px 2px #EBECF1;
-          li {
-            a {
-              color: #F9F8FD;
-            }
-          }
         }
       }
     }
   }
-  
-  @keyframes slide-in {
-    0% {
-      top: -50px;
-    }
-    40% {
-      top: 20px;
-    }
-    70% {
-      top: 10px;
-    }
-    100% {
-      top: 15px;
+
+  .famNav {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    .displayFlex(column);
+    margin: 1.2rem -1.2rem;
+    width: 17rem;
+    padding: 0;
+    background: @christmas-red;
+    
+    transition: opacity 0.2s, visibility 0.2s;
+    li {
+      
+      padding:1rem;
+      width: 100%;
+      line-height: 1.7;
     }
   }

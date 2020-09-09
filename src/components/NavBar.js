@@ -11,9 +11,11 @@ const NavBar = ({ families, user }) =>{
             <li><Link to={`/wishlist/${user.lastname}/${user.user_id}`}>Your Wishlist</Link></li>
             <li>
               <Link to="/home">Families</Link>
-              <ul>
+              <ul className="famNav">
                 {Object.keys(families).map((family)=>(
-                  <Link to={`/wishlist/${family}`} key={family}> {family} </Link>
+                  <li key={family}>
+                    <Link to={`/wishlist/${family}`}> {family} </Link>
+                  </li>
                 ))}
               </ul>
             </li>
