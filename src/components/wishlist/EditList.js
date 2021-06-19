@@ -22,6 +22,11 @@ const EditList = ({ gifts, history, user_id, match }) =>{
 
                         <p>{gift.description}</p>
                         <button onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/edit/${gift.id}`)}>Edit Gift</button>
+                        <button 
+                            onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/remove/${gift.id}`)}
+                        >
+                            Remove Gift
+                        </button>
                     </div>
                 ))}
             </div>

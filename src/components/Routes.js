@@ -10,6 +10,7 @@ import ConfirmPurchased from "./wishlist/gifts/ConfirmPurchased";
 import AddGift from './wishlist/gifts/AddGift';
 import PrivateRoute from './PrivateRoute';
 import Register from './Register';
+import ConfirmDelete from './wishlist/gifts/ConfirmDelete'
 
 const Routes = () =>{
 
@@ -24,6 +25,7 @@ const Routes = () =>{
             <PrivateRoute path='/wishlist/:family' exact component = { FamilyMembers }/>
             <PrivateRoute path='/wishlist/:family/:id' exact component = { Wishlist }/>
             <PrivateRoute path='/wishlist/:family/:id/confirm/:gift_id' component = { ConfirmPurchased }/>
+            <PrivateRoute path='/wishlist/:family/:id/remove/:gift_id' component = { ConfirmDelete }/>
             <PrivateRoute path='/wishlist/:family/:id/edit/:gift_id' exact component = { EditGift }/>
             <PrivateRoute path='/wishlist/:family/:id/add' exact component = { AddGift }/>
 
