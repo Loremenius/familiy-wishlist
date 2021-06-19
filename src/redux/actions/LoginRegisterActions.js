@@ -1,4 +1,5 @@
 import axios from "axios";
+import CreateBaseURL from "../DatabaseURL";
 
 // declares redux actions for logging in user
 export const LOGIN_USER_LOADING = "LOGIN_USER_LOADING";
@@ -43,7 +44,7 @@ export function loginUser(user,history){
         // sets state isFetching to true.
         dispatch(loginUserLoading());
         // sends user object to back end and will recieve a response. 
-        return axios.post('https://family-wishlist-db.herokuapp.com/api/user/login',user)
+        return axios.post(`${CreateBaseURL()}/api/user/login`,user)
             .then(response=>{
                 // sends data from response to redux to save data
                 dispatch(loginUserSuccess(response.data));
@@ -74,7 +75,7 @@ export function registerUser(user, history){
         // sets redux storage isFetching to true
         dispatch(registerUserLoading());
         // calls back end and attempts to create a new user.
-        return axios.post('https://family-wishlist-db.herokuapp.com/api/user/register',user)
+        return axios.post(`${CreateBaseURL()}/api/user/register`,user)
             .then(()=>{
                 // sets redux storage isFetching to false.
                 dispatch(registerUserSuccess());

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import CreateBaseURL from '../DatabaseURL';
 
 import { axiosWithAuth } from '../../components/axiosWithAuth';
 
@@ -33,7 +34,7 @@ export const clearGifts = () => ({
 export function getFamilies(history){
     // calls back end
     return function(dispatch) {
-        return axios.get('https://family-wishlist-db.herokuapp.com/api/user/families')
+        return axios.get(`${CreateBaseURL()}/api/user/families`)
             .then(response=>{
                 // save response to redux
                 dispatch(getFamiliesSuccess(response.data));
@@ -53,7 +54,7 @@ export function getList(id, history){
         // sets gifts array to empty and sets isFetching to true.
         dispatch(getListLoading());
         // sends request to back end to retrieve gifts.
-        return axiosWithAuth().get(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${id}/list`)
+        return axiosWithAuth().get(`${CreateBaseURL()}/api/user/wishlist/${id}/list`)
             .then(response=>{
                 // take data from response and set it to gifts array. 
                 dispatch(getListSuccess(response.data));
@@ -72,7 +73,7 @@ export function getList(id, history){
 export function editGift(user_id, gift_id, gift, family, history){
     return function(dispatch){
         // sends request to back end to edit gift.
-        return axiosWithAuth().put(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${user_id}/list/${gift_id}`, gift)
+        return axiosWithAuth().put(`${CreateBaseURL()}/api/user/wishlist/${user_id}/list/${gift_id}`, gift)
             .then(data=>{
                 // upon success it sends the user back to their wish list.
                 history.push(`/wishlist/${family}/${user_id}`);
@@ -91,7 +92,7 @@ export function editGift(user_id, gift_id, gift, family, history){
 export function removeGift(user_id, gift_id, family, history){
     return function(dispatch){
         //sends request to back end to delete gift.
-        return axiosWithAuth().delete(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${user_id}/list/${gift_id}`)
+        return axiosWithAuth().delete(`${CreateBaseURL()}/api/user/wishlist/${user_id}/list/${gift_id}`)
             .then(data=>{
                 // sends user back to wishlist
                 history.push(`/wishlist/${family}/${user_id}`);
@@ -110,7 +111,7 @@ export function removeGift(user_id, gift_id, family, history){
 export function confirmPurchased(user_id, gift_id, family, history){
     return function(dispatch){
         // sends request to back end to mark gift as purchased
-        return axiosWithAuth().put(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${user_id}/list/${gift_id}/purchased`)
+        return axiosWithAuth().put(`${CreateBaseURL()}/api/user/wishlist/${user_id}/list/${gift_id}/purchased`)
             .then(data=>{
                 // sends user back to wishlist of the user
                 history.push(`/wishlist/${family}/${user_id}`);
@@ -129,7 +130,7 @@ export function confirmPurchased(user_id, gift_id, family, history){
 export function addGift(user_id, gift, family, history){
     return function(dispatch){
         // sends request to add gift to database.
-        return axiosWithAuth().post(`https://family-wishlist-db.herokuapp.com/api/user/wishlist/${user_id}/list`, gift)
+        return axiosWithAuth().post(`${CreateBaseURL()}/api/user/wishlist/${user_id}/list`, gift)
             .then(data=>{
                 // sends user back to user's wishlist.
                 history.push(`/wishlist/${family}/${user_id}`);
