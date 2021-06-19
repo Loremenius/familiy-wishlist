@@ -12,7 +12,6 @@ const EditList = ({ gifts, history, user_id, match }) =>{
     return(
         <div className = 'editList'>
             <button className="add" onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/add`)}>Add gift to wishlist</button>
-            <hr className="solid"/>
             <div className="wishlist">
                 {gifts.map((gift)=>(
                     <div className="gift" key={gift.id}>

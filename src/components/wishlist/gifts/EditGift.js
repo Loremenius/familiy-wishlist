@@ -4,7 +4,7 @@ import { editGift, removeGift } from "../../../redux/actions/WishlistActions";
 import { setError } from "../../../redux/actions/LoginRegisterActions";
 import findGiftIndex from "../../../redux/reducers/functions/findGiftIndex";
 
-const EditGift = ({ match, user_id, history, editGift, removeGift, error, setError, gifts }) =>{
+const EditGift = ({ match, user_id, history, editGift, error, setError, gifts }) =>{
     const [gift, setGift] = useState({name:'', description:'', gift_url:''});
     function onChange(e){
         e.preventDefault();
@@ -33,11 +33,6 @@ const EditGift = ({ match, user_id, history, editGift, removeGift, error, setErr
         if(!!error) return (<p className='error'>{error}</p>)
         // if error is a empty string: create empty paragraph.
         else return (<p></p>)
-    }
-
-    function onClickRemove(e){
-        e.preventDefault();
-        removeGift(user_id, match.params.gift_id, match.params.family, history);
     }
 
     function onCancel(e){
@@ -95,7 +90,6 @@ const EditGift = ({ match, user_id, history, editGift, removeGift, error, setErr
 
                 <div className="buttons">
                     <button onClick={onSubmit}>Update Gift</button>
-                    <button onClick={onClickRemove}>Remove Gift</button>
                     <button onClick={onCancel}>Cancel</button>
                 </div>
             </form>
@@ -111,4 +105,4 @@ function mapStateToProps(state) {
     };
   }
 
-export default connect(mapStateToProps, { editGift, removeGift, setError })(EditGift);
+export default connect(mapStateToProps, { editGift, setError })(EditGift);
