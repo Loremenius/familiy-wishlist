@@ -13,22 +13,6 @@
         width:20rem;
         padding:0.75rem
     }
-     .gift:hover{ 
-       background-color: @button-hover;
-       border-radius: 5rem;
-       transition: all 0.3s ease 0s;
-       h3 { 
-        color: @link-color;
-       }
-
-       p { 
-        color: @link-color;
-       }
-
-       a { 
-        color: @header-font-color;
-       }
-     }
 }
 
 .indexList {
@@ -64,5 +48,8 @@
         font-size: 2rem;
         color: @purchased-color;
         padding-top: 1rem;
+    }
+    .giftButtons{
+        .displayFlex(row, space-evenly, center, wrap)
     }
 }

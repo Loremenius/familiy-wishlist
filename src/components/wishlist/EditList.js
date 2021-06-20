@@ -4,8 +4,12 @@ import { connect } from "react-redux";
 const EditList = ({ gifts, history, user_id, match }) =>{
 
     function createLinkToGift(gift_url){
-        //if there is a url, display a link. Otherwise display empty paragraph tags
-        if (!!gift_url) return(<a>View gift at original website</a>)
+        // get the first 4 characters of the url
+        const urlBegin = gift_url.slice(0,4);
+        //if the url does not include http: add http to the url
+        if (urlBegin !== 'http' && !!urlBegin) gift_url = `http://${gift_url}`
+        //if there is a url, display a link with reference to that url. Otherwise display empty paragraph tags
+        if (!!gift_url) return(<a href={gift_url} target="_blank" >View gift at original website</a>)
         else return (<p></p>)
     }
     // This component creates a version of the user's list that allows them to edit gifts when selecting them.
@@ -20,12 +24,14 @@ const EditList = ({ gifts, history, user_id, match }) =>{
                         {createLinkToGift(gift.gift_url)}
 
                         <p>{gift.description}</p>
-                        <button onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/edit/${gift.id}`)}>Edit Gift</button>
-                        <button 
-                            onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/remove/${gift.id}`)}
-                        >
-                            Remove Gift
-                        </button>
+                        <div className="giftButtons">
+                            <button onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/edit/${gift.id}`)}>Edit Gift</button>
+                            <button 
+                                onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/remove/${gift.id}`)}
+                            >
+                                Remove Gift
+                           </button>
+                        </div>
                     </div>
                 ))}
             </div>

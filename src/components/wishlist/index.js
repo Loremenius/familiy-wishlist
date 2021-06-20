@@ -13,6 +13,7 @@ const Wishlist = ({gifts, getList, match, user_id, history, families}) =>{
         else return <ViewList gifts = {gifts} history = {history} match = {match}/> 
     }
     useEffect(()=>{
+        gifts = [];
         getList(match.params.id, history);
     },[match.params.id]);
     // This component creates the wishlist and will render gifts in either edit or view only mode. 

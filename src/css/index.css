@@ -456,20 +456,6 @@ form .error {
   width: 20rem;
   padding: 0.75rem;
 }
-.editList .gift:hover {
-  background-color: #C73529;
-  border-radius: 5rem;
-  transition: all 0.3s ease 0s;
-}
-.editList .gift:hover h3 {
-  color: #F7F7F9;
-}
-.editList .gift:hover p {
-  color: #F7F7F9;
-}
-.editList .gift:hover a {
-  color: #37312C;
-}
 .indexList {
   display: flex;
   flex-direction: column;
@@ -511,6 +497,13 @@ form .error {
   font-size: 2rem;
   color: #C73529;
   padding-top: 1rem;
+}
+.gift .giftButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .loading {
   margin: 2rem;
