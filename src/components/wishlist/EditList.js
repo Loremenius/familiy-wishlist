@@ -21,9 +21,10 @@ const EditList = ({ gifts, history, user_id, match }) =>{
                     <div className="gift" key={gift.id}>
                         <h3>{gift.name}</h3>
 
+                        <p>{gift.description}</p>
+
                         {createLinkToGift(gift.gift_url)}
 
-                        <p>{gift.description}</p>
                         <div className="giftButtons">
                             <button onClick={()=>history.push(`/wishlist/${match.params.family}/${user_id}/edit/${gift.id}`)}>Edit Gift</button>
                             <button 

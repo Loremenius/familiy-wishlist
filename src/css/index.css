@@ -174,12 +174,20 @@ button:hover {
   transition: all 0.3s ease 0s;
 }
 a {
-  font-size: 2.5rem;
-  color: #F7F7F9;
+  color: #701916;
+  font-size: 2rem;
+  padding: 1rem;
+  border: 0.2rem solid #701916;
+  border-radius: 0.6rem;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
   text-decoration: none;
 }
 a:hover {
-  text-decoration: underline;
+  color: #C73529;
+  border-color: #C73529;
+  border-radius: 5rem;
+  transition: all 0.3s ease 0s;
 }
 .viewLinks {
   width: 100%;
@@ -235,6 +243,7 @@ ul li {
   transition: background 0.2s;
 }
 ul li a {
+  border: none;
   color: #37312C;
   text-decoration: none;
   transition: color 0.2s;
@@ -247,6 +256,8 @@ ul li:hover {
 }
 ul li:hover a {
   color: #F9F8FD;
+  width: 100%;
+  height: 100%;
 }
 ul li:hover .famNav {
   visibility: visible;
@@ -264,7 +275,7 @@ ul li:hover .famNav {
   margin: 1.2rem -1.2rem;
   width: 17rem;
   padding: 0;
-  background: #C73529;
+  background: #37312C;
   transition: opacity 0.2s, visibility 0.2s;
 }
 .famNav li {
@@ -455,6 +466,7 @@ form .error {
 .editList .add {
   width: 20rem;
   padding: 0.75rem;
+  margin-bottom: 1rem;
 }
 .indexList {
   display: flex;
@@ -465,8 +477,7 @@ form .error {
   padding-top: 2rem;
 }
 .gift {
-  background-color: #AFA2A5;
-  margin: 2rem;
+  margin: 0.5rem;
   padding: 1rem;
   width: 45%;
   border: 0.3rem solid #701916;
@@ -481,15 +492,17 @@ form .error {
 .gift h3 {
   text-align: center;
   font-size: 3rem;
-  padding-bottom: 1rem;
 }
 .gift p {
+  text-align: justify;
+  margin: 1rem;
   font-size: 2rem;
 }
 .gift button {
   margin: 0.5rem;
 }
 .gift a {
+  background-color: #F7F7F9;
   padding-bottom: 1rem;
 }
 .gift .purchased {

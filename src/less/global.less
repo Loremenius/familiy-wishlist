@@ -53,13 +53,21 @@
   }
 
   a {
-      font-size: 2.5rem;
-      color: @link-color;
+      color: @button-color;
+      font-size: 2rem;
+      padding: 1rem;
+      border: 0.2rem solid @button-color;
+      border-radius: 0.6rem;
+      display: inline-block;
+      transition: all 0.3s ease 0s;
       text-decoration: none;
   }
 
   a:hover {
-    text-decoration: underline;
+    color:@button-hover;
+    border-color: @button-hover;
+    border-radius: 5rem;
+    transition: all 0.3s ease 0s;
 }
 
 .viewLinks {
