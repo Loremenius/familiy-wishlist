@@ -45,7 +45,7 @@ const Login = ({ registerUser, history, error, setError }) =>{
         // check to make sure all fields are filled out
         if(!!user.username && !!user.password &&  !!user.firstname && !!user.lastname && !!auth){
             // check to see if password passed by user is the same as the authorization password
-            if(auth == authorization){
+            if(auth === authorization){
                 // if password is correct. call action to send data to back-end.
 
                 // send firstname and last name to fixNameCasing function to convert them to correct casing. (Returns object)

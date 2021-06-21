@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { editGift, removeGift } from "../../../redux/actions/WishlistActions";
+import { editGift } from "../../../redux/actions/WishlistActions";
 import { setError } from "../../../redux/actions/LoginRegisterActions";
 import findGiftIndex from "../../../redux/reducers/functions/findGiftIndex";
 

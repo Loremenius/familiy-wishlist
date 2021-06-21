@@ -32,7 +32,7 @@ const Login = ({ loginUser, history, error, setError, isFetching }) =>{
         // if the site is fetching data from the database: display the loading gif. Otherwise: display the login button.
         if ( isFetching ) return ( 
             <div className = 'loading'>
-                <img src={loadingImg}/> 
+                <img src={loadingImg} alt=""/> 
                 <p>Loading...</p>
             </div>
         )
