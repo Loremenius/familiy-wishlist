@@ -19,7 +19,7 @@ const ViewList = ({ gifts, history, match }) =>{
         //if the url does not include http: add http to the url
         if (urlBegin !== 'http' && !!urlBegin) gift_url = `http://${gift_url}`
         //if there is a url, display a link with reference to that url. Otherwise display empty paragraph tags
-        if (!!gift_url) return(<a href={gift_url} rel="noopener" >View gift at original website</a>)
+        if (!!gift_url) return(<a href={gift_url} target="_blank" rel="noopener noreferrer" >View gift at original website</a>)
         else return (<p></p>)
     }
     // creates a component to view gifts in view only mode.
